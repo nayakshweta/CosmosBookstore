@@ -8,7 +8,12 @@ const routes = [ {
     Component: BooksListPage,
     private: true,
     exact: true,
-}];
+}, {
+    path: '/books/:id',
+    Component: BookPage,
+    private: true,
+}
+];
 
 export const Routes = () => (
     <Router>
