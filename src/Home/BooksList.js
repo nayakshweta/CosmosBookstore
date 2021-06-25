@@ -1,5 +1,8 @@
 import React from 'react';
 
-export const CreateBooksListPage = () => (
-    <h1>This is the books list page</h1>
-)
+export const BooksList = ({isLoading, books, ListItemComponent}) => 
+    isLoading
+        ? <p>Loading...</p>
+        : books.map(book => (
+                <ListItemComponent key={book._id} book={book} />
+        ));

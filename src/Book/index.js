@@ -1,1 +1,1 @@
-export { CreateBookPage } from "./BookPage";
+export { BookPage } from "./BookPage";

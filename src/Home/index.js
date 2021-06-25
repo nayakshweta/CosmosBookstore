@@ -1,1 +1,1 @@
-export { CreateBooksListPage } from "./BooksList";
+export { BooksListPage } from "./BooksListPage";

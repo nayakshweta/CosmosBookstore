@@ -1,9 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {CreateBookPage} from './Book';
-import { CreateBooksListPage } from './Home';
+import { BookPage } from './Book';
+import { BooksListPage } from './Home';
 
-const routes = [ ];
+const routes = [ {
+    path: '/',
+    Component: BooksListPage,
+    private: true,
+    exact: true,
+}];
 
 export const Routes = () => (
     <Router>
