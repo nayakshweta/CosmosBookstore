@@ -12,15 +12,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-p, a {
-  font-family: 'Source Sans Pro', sans-serif;
-}
 
 /* Generic styles */
 html {
   scroll-behavior: smooth;
 }
-
 
 a:hover {
   opacity: .6;
@@ -37,25 +33,42 @@ a:hover {
 
 .books > ul > li {
   border: 1px solid #E2E2E2;
-  border-radius: .5rem;
+  border-radius: 1rem;
   margin: 1rem;
-  background-color:wheat;
 }
 
-.books > ul > li > a 
-{
+.books > ul > li > a {
   text-decoration: none;
+  color: white;
 }
 
-.books > ul > li > a > figure {
-  max-height: 400px;
-  overflow:hidden;
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
+.books > ul > li > a > .item 
+{
   position: relative;
-  margin: 0 0 0 0;
 }
 
-.books > ul > li > a > figure > img {
+.books > ul > li > a > .item > .item-overlay 
+{
+  bottom: 0;
   width: 100%;
+  position: absolute;
+  background-color: rgba(59, 30, 30, 0.8);
+  height: 8rem;
+  padding: 0.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.books > ul > li > a > .item > .item-overlay > .book-title
+{
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.books > ul > li > a > .item > .item-overlay > .book-author
+{
+  font-family: 'Playfair Display', serif;
+  font-size: .8rem;
+
 }
