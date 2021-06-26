@@ -3,14 +3,15 @@ nav {
   margin: 18px 0 18px 0;
 }
 
+#cosmosbookstore {
+  margin: 0 0 0 6.5rem;
+}
 /* Typography imported from Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
-
-
 
 
 /* Generic styles */
@@ -24,11 +25,14 @@ a:hover {
 
 /* books styles */
 
+.books {
+  margin: 3rem 3rem 3rem 0;
+}
 
 .books > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 3rem;
+  grid-gap: 1.5rem;
 }
 
 .books > ul > li {
