@@ -21,73 +21,41 @@ html {
   scroll-behavior: smooth;
 }
 
-a {
-  background-color: goldenrod;
-  text-decoration: none;
-  color: white;
-  border-radius: .25rem;
-  text-align: center;
-  display: inline-block;
-  transition: all .3s;
-}
 
 a:hover {
   opacity: .6;
 }
 
 /* books styles */
-.books {
-  padding: 0 5rem 0 5rem;
-}
+
 
 .books > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 1rem;
+  grid-gap: 3rem;
 }
 
 .books > ul > li {
   border: 1px solid #E2E2E2;
   border-radius: .5rem;
   margin: 1rem;
-  padding: .5rem;
+  background-color:wheat;
 }
 
-.books > ul > li > figure {
+.books > ul > li > a 
+{
+  text-decoration: none;
+}
+
+.books > ul > li > a > figure {
   max-height: 400px;
-  overflow: hidden;
+  overflow:hidden;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
   position: relative;
+  margin: 0 0 0 0;
 }
 
-.books > ul > li > figure > img {
+.books > ul > li > a > figure > img {
   width: 100%;
-}
-
-.books > ul > li > figure > figcaption {
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(0,0,0,.7);
-  width: 100%;
-  height: 100px;
-}
-
-.books > ul > li > figure > figcaption > h3 {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: white;
-  padding: .75rem;
-}
-
-.books > ul > li > p {
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 1rem .75rem;
-  color: #ffffff;
-}
-
-.books > ul > li > a {
-  padding: .5rem 1rem;
-  margin: .5rem;
 }
