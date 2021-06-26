@@ -1,8 +1,14 @@
 import React from 'react';
 
-export const BooksList = ({isLoading, books, ListItemComponent}) => 
-    isLoading
-        ? <p>Loading...</p>
-        : books.map(book => (
-                <ListItemComponent key={book._id} book={book} />
-        ));
+export const BooksList = ({isLoading, books, ListItemComponent}) => {
+
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
+
+    const booksMap = books.map(book => (
+        <ListItemComponent key={book._id} book={book} />));
+    
+    return <section className="books" id="books"><ul>{booksMap}</ul></section>
+
+}

@@ -9,11 +9,9 @@ export const BooksListPage = () => {
     console.log(allBooks);
 
     return (
-        <div className="centered-container">
             <BooksList 
                 isLoading={isLoading}
                 books={allBooks}
                 ListItemComponent={BooksListItem}/>
-        </div>
     )
 }
