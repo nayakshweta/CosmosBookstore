@@ -383,12 +383,6 @@ nav > .menuToggle > .menu > a > li
 }
 
 
-@media (max-width: 1024px) {
-  .book-page {
-    padding-top: 22rem;
-  }
-}
-
 
 .book-page > .book-img-and-metadata {
   display: flex;
@@ -400,13 +394,13 @@ nav > .menuToggle > .menu > a > li
 .book-page > .book-img-and-metadata > .book-img-container {
   flex: 50%;
   margin: 0;
+  text-align: center;
 }
 
 .book-page > .book-img-and-metadata > .book-img-container > .book-image {
   width: 60%;
   border-radius: 1rem;
   border: 1px solid orange;
-  margin: 0 0 0 5rem;
 }
 
 .book-page > .book-img-and-metadata > .book-metadata {
@@ -431,4 +425,56 @@ nav > .menuToggle > .menu > a > li
   padding-top: 2rem;
   font-size: 1rem;
   line-height: 2rem;
+}
+
+
+@media (max-width: 1024px) {
+  .book-page {
+    padding-top: 22rem;
+  }
+
+  .book-page > .book-img-and-metadata {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+
+  .book-page > .book-img-and-metadata > .book-metadata {
+    flex: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 0 1rem 0 1rem;
+  }
+
+  .book-page > .book-img-and-metadata > .book-img-container {
+    flex: 100%;
+    padding-bottom: 4rem;
+    
+  }
+
+  .book-page > .book-img-and-metadata > .book-img-container > .book-image {
+    width: 70%;
+    border-radius: 1rem;
+    border: 1px solid orange;
+    margin: 0 0 0 0;
+  }
+
+
+
+  .book-page > .book-img-and-metadata > .book-metadata > h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  
+  .book-page > .book-img-and-metadata > .book-metadata > h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .book-page > .book-img-and-metadata > .book-metadata > p {
+    padding-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
