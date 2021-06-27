@@ -14,7 +14,7 @@ export const NavBar = () =>  (
                     <a href="#"><li>About</li></a>
                 </ul>
             </div>
-            <a className="logo" href="/"><span className="logo-text">Cosmos Bookstore</span></a>
+            <a className="logo" href="/"><span className="logo-text">Cosmos Books</span></a>
         </nav>
         
         <div className="search-box">
