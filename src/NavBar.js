@@ -14,12 +14,16 @@ export const NavBar = () =>  (
                     <a href="#"><li>About</li></a>
                 </ul>
             </div>
+            <div className="logo"><span className="logo-text">Cosmos Bookstore</span></div>
         </nav>
+        
         <div className="search-box">
             <div className="field">
                 <input type="search" name="search" placeholder="Find your next book to read..." className="search-query"/>
-                <button type="submit" className="btn search-submit-btn">Search</button>
+                <button type="submit" className="search-submit-btn">Search</button>
             </div>
         </div>
+        <div className="signup"><button className="signup-btn">Sign Up</button></div>
+        <div className="login"><button className="login-btn">Login</button></div>
     </header>
 );

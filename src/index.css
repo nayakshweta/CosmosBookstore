@@ -17,6 +17,10 @@ html {
   background-color:#232323
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
 .navbar {
   position: fixed;
   height: 5rem;
@@ -25,21 +29,30 @@ html {
   right: 0;
   top: 0;
   z-index: 1;
+  flex-direction: row;
+  display: flex;
 
 }
 
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+nav {
+  flex: 30%;
+  display: flex;
+}
 
 /* Navbar stuff */
 
 nav > .menuToggle
 {
-  position:fixed;
-  top: 25px;
-  left: 25px;
   z-index: 1;
-  
   -webkit-user-select: none;
   user-select: none;
+  padding: 1.5rem;
 }
 
 
@@ -47,17 +60,13 @@ nav > .menuToggle
 nav > .menuToggle > input
 {
   display: block;
-  width: 40px;
-  height: 62px;
   position: absolute;
-  top: -7px;
-  left: -5px;
-  
   cursor: pointer;
-  
+  width: 40px;
+  height: 40px;
+  margin: 0px;
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
-  
   -webkit-touch-callout: none;
 }
 
@@ -179,20 +188,35 @@ nav > .menuToggle > .menu > a > li
 
  /* End of Navbar stuff */
 
+
+ .navbar > nav > .logo {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.navbar > nav > .logo > .logo-text {
+  font-size: 2rem;
+  color: white;
+}
+
  /* Start search box styles */
 
 .navbar > .search-box > .field >input,
 .navbar > .search-box > .field > button,
 .navbar > .search-box {
-  padding: .5em .5em;
+  padding: 1rem;
   border: none;
   font-size: 1.1rem;
   text-decoration: none;
+  
 }
 
+
 .navbar > .search-box {
-  margin: 1rem auto 0;
-  max-width: 40%;
+  flex: 50%;
+  /* padding-top: 1rem; */
+  background-color: #232323;
+  
 }
 
 .navbar > .search-box > .field {
@@ -204,10 +228,16 @@ nav > .menuToggle > .menu > a > li
   border-top-left-radius: .5rem;
   border-bottom-left-radius: .5rem;
   background: #e9e9e9;
-    overflow: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.navbar > .search-box > .field > .search-query:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
 
 .navbar > .search-box > .field > .search-submit-btn {
   flex: 0 0 auto;
@@ -220,10 +250,54 @@ nav > .menuToggle > .menu > a > li
 }
 /* End search box styles */
  
+.navbar > .signup { 
+  flex: 10%;
+  padding: 0 1rem 0 1rem;
+  background-color: #232323;
+}
+
+.navbar > .login { 
+  flex: 10%;
+  padding: 0 1rem 0 1rem;
+  background-color: #232323;
+}
+
+.navbar > .signup > .signup-btn {
+  font-weight: 300;
+  font-size: 1.1rem;
+  background-color: #2780e3;
+  height: 3.4rem;
+  width: 100%;
+  margin: 1rem 0 1rem 0;
+  border: none;
+  color: #EDFFEC;
+  border-radius: .5rem;
+}
+
+.navbar > .login > .login-btn {
+  font-weight: 300;
+  font-size: 1.1rem;
+  background-color: #3fb618;
+  height: 3.4rem;
+  width: 100%;
+  margin: 1rem 0 1rem 0;
+  border: none;
+  color: #EDFFEC;
+  border-radius: .5rem;
+}
+
 /* books styles */
 
 .books {
-  margin: 5rem 3rem 3rem 0;
+  flex: 100%;
+  padding-top: 6rem;
+  margin-right: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .books {
+    padding-top: 15rem;
+  }
 }
 
 .books > ul {
@@ -287,4 +361,3 @@ nav > .menuToggle > .menu > a > li
 }
 
 /* End of books styles */
-
