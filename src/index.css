@@ -1,22 +1,20 @@
-nav {
-  padding: 16px;
-  margin: 18px 0 18px 0;
-}
+
 
 #cosmosbookstore {
   margin: 0 0 0 6.5rem;
 }
 /* Typography imported from Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
 /* Generic styles */
 html {
   scroll-behavior: smooth;
+  background-color:#373a3c
 }
 
 a:hover {
@@ -33,6 +31,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 1.5rem;
+  list-style-type: none;
 }
 
 .books > ul > li {
@@ -56,23 +55,27 @@ a:hover {
   bottom: 0;
   width: 100%;
   position: absolute;
-  background-color: rgba(59, 30, 30, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   height: 8rem;
-  padding: 0.5rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
 
 .books > ul > li > a > .item > .item-overlay > .book-title
 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  font-weight: 600;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight:500;
 }
 
 .books > ul > li > a > .item > .item-overlay > .book-author
 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
   font-size: .8rem;
+  font-weight:300;
 
 }

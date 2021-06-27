@@ -10,7 +10,6 @@ export const BooksListItem = ({ book }) => (
         
             <div className="item-overlay">
                 <div className="book-title">{book.title}</div>
-                <br/>
                 <div className="book-author">By {book.author}</div>
             </div>
         </div>
