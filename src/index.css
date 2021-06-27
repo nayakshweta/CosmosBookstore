@@ -83,7 +83,7 @@ a:hover {
 
 /* Navbar stuff */
 
-#menuToggle
+nav > .menuToggle
 {
   position:fixed;
   top: 25px;
@@ -94,7 +94,7 @@ a:hover {
   user-select: none;
 }
 
-#menuToggle a
+nav > .menuToggle > ul > a
 {
   text-decoration: none;
   color: #232323;
@@ -102,13 +102,13 @@ a:hover {
   transition: color 0.3s ease;
 }
 
-#menuToggle a:hover
+nav > .menuToggle > ul > a:hover
 {
   color: tomato;
 }
 
 
-#menuToggle input
+nav > .menuToggle > input
 {
   display: block;
   width: 40px;
@@ -128,7 +128,7 @@ a:hover {
 /*
  * Just a quick hamburger
  */
-#menuToggle span
+ nav > .menuToggle > span
 {
   display: block;
   width: 33px;
@@ -148,12 +148,12 @@ a:hover {
               opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
+nav > .menuToggle > span:first-child
 {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
+nav > .menuToggle > span:nth-last-child(2)
 {
   transform-origin: 0% 100%;
 }
@@ -162,7 +162,7 @@ a:hover {
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-#menuToggle input:checked ~ span
+nav > .menuToggle > input:checked ~ span
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
@@ -172,7 +172,7 @@ a:hover {
 /*
  * But let's hide the middle one.
  */
-#menuToggle input:checked ~ span:nth-last-child(3)
+nav > .menuToggle > input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
@@ -181,7 +181,7 @@ a:hover {
 /*
  * Ohyeah and the last one should go the other direction
  */
-#menuToggle input:checked ~ span:nth-last-child(2)
+nav > .menuToggle > input:checked ~ span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
 }
@@ -190,7 +190,7 @@ a:hover {
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu
+nav > .menuToggle > .menu
 {
   display: flex;
   flex-direction: column;
@@ -212,7 +212,7 @@ a:hover {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-#menu li
+nav > .menuToggle > .menu > a > li
 {
   padding: 10px 0;
   font-size: 22px;
@@ -221,7 +221,9 @@ a:hover {
 /*
  * And let's slide it in from the left
  */
-#menuToggle input:checked ~ ul
-{
-  transform: none;
-}
+ nav > .menuToggle > input:checked ~ ul
+ {
+   transform: none;
+ }
+
+ /* End of Navbar stuff */
