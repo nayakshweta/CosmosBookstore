@@ -1,8 +1,3 @@
-
-
-#cosmosbookstore {
-  margin: 0 0 0 6.5rem;
-}
 /* Typography imported from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
@@ -192,6 +187,7 @@ nav > .menuToggle > .menu > a > li
  .navbar > nav > .logo {
   padding-left: 1rem;
   padding-top: 1rem;
+  text-decoration: none;
 }
 
 .navbar > nav > .logo > .logo-text {
@@ -248,6 +244,13 @@ nav > .menuToggle > .menu > a > li
   font-weight: 300;
   color: #EDFFEC;
 }
+
+.navbar > .search-box > .field > .search-submit-btn:hover {
+  cursor: pointer;
+  background: darkorange;
+  transition: all 0.5s ease;
+  -webkit-transition: all .5s ease;
+}
 /* End search box styles */
  
 .navbar > .signup { 
@@ -274,6 +277,13 @@ nav > .menuToggle > .menu > a > li
   border-radius: .5rem;
 }
 
+.navbar > .signup > .signup-btn:hover {
+  background-color: #0d4c94;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  -webkit-transition: all .5s ease;
+}
+
 .navbar > .login > .login-btn {
   font-weight: 300;
   font-size: 1.1rem;
@@ -286,7 +296,14 @@ nav > .menuToggle > .menu > a > li
   border-radius: .5rem;
 }
 
-/* books styles */
+.navbar > .login > .login-btn:hover {
+  background-color: #237408;
+  cursor: pointer;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+}
+
+/* books list styles */
 
 .books {
   flex: 100%;
@@ -317,6 +334,8 @@ nav > .menuToggle > .menu > a > li
   border: 1px solid orange;
   border-radius: 1rem;
   margin: 1rem;
+  transition: all .5s ease;
+  -webkit-transition: all 1s ease;
 }
 
 
@@ -360,4 +379,8 @@ nav > .menuToggle > .menu > a > li
 
 }
 
-/* End of books styles */
+/* End of books list styles */
+
+/* Book page styles */
+
+
