@@ -199,6 +199,13 @@ nav > .menuToggle > .menu > a > li
   margin: 1rem;
 }
 
+.books > ul > li:hover {
+  border: 1px solid orange;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+
 .books > ul > li > a {
   text-decoration: none;
   color: white;
