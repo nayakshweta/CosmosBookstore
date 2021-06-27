@@ -2,6 +2,7 @@ import React from 'react';
 
 
 export const NavBar = () =>  (
+    <header className="navbar">
     <nav role="navigation">
         <div className="menuToggle">
             <input type="checkbox" />
@@ -14,4 +15,5 @@ export const NavBar = () =>  (
             </ul>
         </div>
     </nav>
+    </header>
 );

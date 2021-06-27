@@ -17,66 +17,14 @@ html {
   background-color:#232323
 }
 
-a:hover {
-  opacity: .6;
-}
-
-/* books styles */
-
-.books {
-  margin: 3rem 3rem 3rem 0;
-}
-
-.books > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 1.5rem;
-  list-style-type: none;
-}
-
-.books > ul > li {
-  border: 1px solid #E2E2E2;
-  border-radius: 1rem;
-  margin: 1rem;
-}
-
-.books > ul > li > a {
-  text-decoration: none;
-  color: white;
-}
-
-.books > ul > li > a > .item 
-{
-  position: relative;
-}
-
-.books > ul > li > a > .item > .item-overlay 
-{
-  bottom: 0;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 8rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-}
-
-.books > ul > li > a > .item > .item-overlay > .book-title
-{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-weight:500;
-}
-
-.books > ul > li > a > .item > .item-overlay > .book-author
-{
-  font-family: 'Montserrat', sans-serif;
-  padding: 1rem;
-  font-size: .8rem;
-  font-weight:300;
+.navbar {
+  position: fixed;
+  height: 5rem;
+  background-color: #232323;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
 
 }
 
@@ -94,18 +42,6 @@ nav > .menuToggle
   user-select: none;
 }
 
-nav > .menuToggle > ul > a
-{
-  text-decoration: none;
-  color: #232323;
-  
-  transition: color 0.3s ease;
-}
-
-nav > .menuToggle > ul > a:hover
-{
-  color: tomato;
-}
 
 
 nav > .menuToggle > input
@@ -166,7 +102,7 @@ nav > .menuToggle > input:checked ~ span
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: white;
 }
 
 /*
@@ -186,22 +122,33 @@ nav > .menuToggle > input:checked ~ span:nth-last-child(2)
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
+ 
+nav > .menuToggle > ul > a
+{
+  text-decoration: none;
+  color: white;
+  
+  transition: color 0.3s ease;
+}
+
+nav > .menuToggle > ul > a:hover
+{
+  color: orange;
+}
+
 nav > .menuToggle > .menu
 {
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 300px;
+  width: 200px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
   height:100vw;
   
-  background: #ededed;
+  background: #232323;
+  opacity: .99;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -210,6 +157,10 @@ nav > .menuToggle > .menu
   transform: translate(-100%, 0);
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  border-color: gray;
+  border-width: 0.1rem;
+  border-style: solid;
+
 }
 
 nav > .menuToggle > .menu > a > li
@@ -227,3 +178,65 @@ nav > .menuToggle > .menu > a > li
  }
 
  /* End of Navbar stuff */
+
+ 
+/* books styles */
+
+.books {
+  margin: 5rem 3rem 3rem 0;
+}
+
+.books > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1.5rem;
+  list-style-type: none;
+}
+
+.books > ul > li {
+  border: 1px solid #E2E2E2;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.books > ul > li > a {
+  text-decoration: none;
+  color: white;
+}
+
+.books > ul > li > a > .item 
+{
+  position: relative;
+}
+
+.books > ul > li > a > .item > .item-overlay 
+{
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 8rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.books > ul > li > a > .item > .item-overlay > .book-title
+{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight:500;
+}
+
+.books > ul > li > a > .item > .item-overlay > .book-author
+{
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
+  font-size: .8rem;
+  font-weight:300;
+
+}
+
+/* End of books styles */
