@@ -179,6 +179,46 @@ nav > .menuToggle > .menu > a > li
 
  /* End of Navbar stuff */
 
+ /* Start search box styles */
+
+.navbar > .search-box > .field >input,
+.navbar > .search-box > .field > button,
+.navbar > .search-box {
+  padding: .5em .5em;
+  border: none;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.navbar > .search-box {
+  margin: 1rem auto 0;
+  max-width: 40%;
+}
+
+.navbar > .search-box > .field {
+  display: flex;
+}
+
+.navbar > .search-box > .field > .search-query {
+  flex: 1 0 8em;
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  background: #e9e9e9;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar > .search-box > .field > .search-submit-btn {
+  flex: 0 0 auto;
+  border:none;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  background: orange;
+  font-weight: 300;
+  color: #EDFFEC;
+}
+/* End search box styles */
  
 /* books styles */
 
@@ -247,3 +287,4 @@ nav > .menuToggle > .menu > a > li
 }
 
 /* End of books styles */
+
