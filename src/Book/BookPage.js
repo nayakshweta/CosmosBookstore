@@ -9,13 +9,20 @@ export const BookPage = () => {
     console.log(setBook);
 
     return (
-        <div className="centered-contaner">
-            <img src={book.img} alt={book.title}></img>
-            <h1>{book.title}</h1>
-            <h2>{book.author}</h2>
-            <p>{book.desc}</p>
-            <h3>Genre: {book.genre}</h3>
-            <h4>Number of Pages: {book.pages}   Rating: {book.rating}   Reviews: {book.reviews}</h4>
+        <div className="book-page">
+            <div className="book-img-and-metadata">
+                <div className="book-img-container">
+                    <img className="book-image" src={book.img}></img>
+                </div>
+                <div className="book-metadata">
+                    <h1>{book.title}</h1>
+                    <h2>By: {book.author}</h2>
+                    
+                    <p>
+                        <h3>Summary:</h3>
+                        {book.desc}</p>
+                </div>
+            </div>
         </div>
     );
 }
