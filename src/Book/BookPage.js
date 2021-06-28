@@ -1,12 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useBook } from './useBook';
+import { Rating } from "./Rating";
 
 export const BookPage = () => {
     const { id } = useParams();
     const {book, setBook } = useBook(`/books/${id}`);
-    console.log(book);
-    console.log(setBook);
 
     return (
         <div className="book-page">
@@ -17,7 +16,7 @@ export const BookPage = () => {
                 <div className="book-metadata">
                     <h1>{book.title}</h1>
                     <h2>By: {book.author}</h2>
-                    
+                    <Rating rating={book.rating} totalratings={book.totalratings} />
                     <p>
                         <h3>Summary:</h3>
                         {book.desc}</p>

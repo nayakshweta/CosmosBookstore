@@ -486,3 +486,33 @@ nav > .menuToggle > .menu > a > li
     line-height: 1.5rem;
   }
 }
+
+
+.book-page > .book-img-and-metadata > .book-metadata > .ratings-container > .star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+}
+
+.book-page > .book-img-and-metadata > .book-metadata > .ratings-container > .star-ratings-sprite > .star-ratings-sprite-rating {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 21px;
+  display:block;
+  opacity: 0.7;
+}
+
+.book-page > .book-img-and-metadata > .book-metadata > .ratings-container > .rating-description {
+  margin-top: .5rem;
+}
+
+.book-page > .book-img-and-metadata > .book-metadata > .ratings-container > .rating-description > .rating-text {
+    font-size: .8rem;
+    font-style: italic;
+    font-weight: 400;
+}
