@@ -1,7 +1,12 @@
 import { db } from './db';
 
-export const getAllBooks = async () => {
+export const getAllBooks = async (page=0, limit=20) => {
     const connection = db.getConnection();
-    const books = await connection.collection('books').find({}).limit(10).toArray();
+    let cursor;
+    cursor = await connection.collection('books').find({});
+
+    const displayCursor = cursor.limit(limit).skip(page * limit)
+
+    const books = await displayCursor.toArray();
     return books;
 }
