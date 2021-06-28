@@ -23,6 +23,11 @@ export const BookPage = () => {
                         <h3>Summary:</h3>
                         {book.desc}
                     </p>
+                    <p>
+                        <b>Formats: &nbsp;</b> <i>{book.bookformat}</i>
+                        <br />
+                        <b>ISBN: &nbsp;</b> <i>{book.isbn}</i>
+                    </p>
                 </div>
             </div>
         </div>
