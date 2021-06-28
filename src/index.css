@@ -72,7 +72,7 @@ nav > .menuToggle > input
   margin-bottom: 5px;
   position: relative;
   
-  background: orange;
+  background: #ff7518;
   border-radius: 3px;
   
   z-index: 1;
@@ -103,7 +103,7 @@ nav > .menuToggle > input:checked ~ span
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: orange;
+  background: #ff7518;
 }
 
 /*
@@ -134,7 +134,7 @@ nav > .menuToggle > ul > a
 
 nav > .menuToggle > ul > a:hover
 {
-  color: orange;
+  color: #ff7518;
 }
 
 nav > .menuToggle > .menu
@@ -194,7 +194,7 @@ nav > .menuToggle > .menu > a > li
 }
 
 .navbar > nav > .logo > .logo-text:hover {
-  color: orange;
+  color: #ff7518;
   transition: all 0.5s ease;
   -webkit-transition: all .5s ease;
 }
@@ -244,14 +244,14 @@ nav > .menuToggle > .menu > a > li
   border:none;
   border-top-right-radius: .5rem;
   border-bottom-right-radius: .5rem;
-  background: orange;
+  background: #ff7518;
   font-weight: 300;
   color: #EDFFEC;
 }
 
 .navbar > .search-box > .field > .search-submit-btn:hover {
   cursor: pointer;
-  background: darkorange;
+  background: hsl(24, 92%, 36%);
   transition: all 0.5s ease;
   -webkit-transition: all .5s ease;
 }
@@ -334,7 +334,7 @@ nav > .menuToggle > .menu > a > li
 }
 
 .books > ul > li:hover {
-  border: 1px solid orange;
+  border: 1px solid #ff7518;
   border-radius: 1rem;
   margin: 1rem;
   transition: all .5s ease;
@@ -408,7 +408,7 @@ nav > .menuToggle > .menu > a > li
 .book-page > .book-img-and-metadata > .book-img-container > .book-image {
   width: 60%;
   border-radius: 1rem;
-  border: 1px solid orange;
+  border: 1px solid #ff7518;
 }
 
 .book-page > .book-img-and-metadata > .book-metadata {
@@ -463,7 +463,7 @@ nav > .menuToggle > .menu > a > li
   .book-page > .book-img-and-metadata > .book-img-container > .book-image {
     width: 70%;
     border-radius: 1rem;
-    border: 1px solid orange;
+    border: 1px solid #ff7518;
     margin: 0 0 0 0;
   }
 
@@ -487,6 +487,8 @@ nav > .menuToggle > .menu > a > li
   }
 }
 
+
+/* star rating styles */
 
 .book-page > .book-img-and-metadata > .book-metadata > .ratings-container > .star-ratings-sprite {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
@@ -516,3 +518,28 @@ nav > .menuToggle > .menu > a > li
     font-style: italic;
     font-weight: 400;
 }
+/* end of star rating styles */
+
+/* genre styles */
+
+.book-page > .book-img-and-metadata > .book-metadata > .genres-container > ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+.book-page > .book-img-and-metadata > .book-metadata > .genres-container > ul > li {
+  margin: 0.8rem 0.8rem 0.8rem 0;
+}
+
+.book-page > .book-img-and-metadata > .book-metadata > .genres-container > ul > li > span {
+  background-color: #ff7518 ;
+  border-radius: .4rem;
+  padding: .5rem 0.5rem 0.5rem 0.5rem;
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+/* end of genre styles */

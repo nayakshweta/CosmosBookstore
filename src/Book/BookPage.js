@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useBook } from './useBook';
 import { Rating } from "./Rating";
+import { Genres } from "./Genres";
 
 export const BookPage = () => {
     const { id } = useParams();
@@ -17,9 +18,11 @@ export const BookPage = () => {
                     <h1>{book.title}</h1>
                     <h2>By: {book.author}</h2>
                     <Rating rating={book.rating} totalratings={book.totalratings} />
+                    <Genres genres={book.genre}/>
                     <p>
                         <h3>Summary:</h3>
-                        {book.desc}</p>
+                        {book.desc}
+                    </p>
                 </div>
             </div>
         </div>
