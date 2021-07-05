@@ -7,7 +7,7 @@ export const BooksListItem = ({ book }) => {
     const author = book.author.length < 100 ? book.author : book.author.substring(0,100) + '...';
 
     return (<li>
-        <a href={"/books/" + book._id }>
+        <a href={"/books/" + book._id } target="_blank">
         <div 
             className="item" 
             style={{ backgroundImage: 'url(' + book.img + ')', backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', height: '450px', borderRadius: '1rem'}}>

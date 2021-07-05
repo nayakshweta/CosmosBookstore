@@ -6,8 +6,8 @@ export const getAllBooksRoute = {
     handler: async (req, res) => {
         const page = parseInt(req.query.page);
         const limit = parseInt(req.query.limit);
-
-        const books = await getAllBooks(page, limit);
+        const sortby = req.query.sortby;
+        const books = await getAllBooks(page, limit, sortby);
         res.status(200).json(books);
     }
 }
