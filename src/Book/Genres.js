@@ -6,8 +6,8 @@ export const Genres = ({genres}) => {
     if (!genres) {
         return <div></div>;
     }
-    const genres_list = [...new Set(genres.split(','))];
-    const genres_components_list = genres_list.map(genre => (
+    
+    const genres_components_list = genres.map(genre => (
         <Genre genre={genre}/>));
 
     return (
