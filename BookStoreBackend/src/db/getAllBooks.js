@@ -1,16 +1,20 @@
 import { db } from './db';
 
-export const getAllBooks = async (page=0, limit=20, sortby) => {
+export const getAllBooks = async (page=0, limit=20, sortby, rating) => {
     const connection = db.getConnection();
 
-    let sortQuery = {};
-    
+    let sortCriteria = {}; 
     if (sortby == "rating") {
-        sortQuery = ["rating", -1];
+        sortCriteria = ["rating", -1];
+    }
+
+    let queryList = [];
+    if (rating) {
+        queryList.push({"rating": {$gt: rating}});
     }
 
     let cursor;
-    cursor = await connection.collection('books').find({}).sort(sortQuery);
+    cursor = await connection.collection('books').find(...queryList).sort(sortCriteria);
 
     const displayCursor = cursor.limit(limit).skip(page * limit)
 

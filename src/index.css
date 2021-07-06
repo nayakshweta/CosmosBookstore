@@ -620,3 +620,41 @@ nav > .menuToggle > .menu > a > li
 }
 
 /* end of genre styles */
+
+
+.menuToggle > .menu > .ratingForm > .ratings-container {
+  background-color: transparent;
+  border-style: none;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container:hover {
+  border-style: solid;
+  border-radius: 0.1px;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container > .star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+  display: inline-block;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container > .star-ratings-sprite > .star-ratings-sprite-rating {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 21px;
+  display:block;
+  opacity: 0.7;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container  > .star-ratings-sprite-rating-text {
+  color: white;
+  font-size: 1.2rem;
+  height: 21px;
+  vertical-align: top;
+}

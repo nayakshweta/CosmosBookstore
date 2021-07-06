@@ -6,9 +6,11 @@ export const useBooks = () => {
     const [books, setBooks] = useState([]);
     const [page, setPage] = useState(0);
     const [sortby, setSortBy] = useState("");
+    const [rating, setRating] = useState(0);
 
     const loadBooks = async () => {
-        let url = "/books?limit=20".concat("&sortby=").concat(sortby);
+        let url = "/books?limit=20".concat("&sortby=").concat(sortby).concat("&rating=").concat(rating);
+        console.log(url);
         const response = await fetch(url + "&page=" + page);
         const new_books = await response.json();
         if (page==0) {
@@ -32,11 +34,11 @@ export const useBooks = () => {
         loadBooks();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [page, sortby]);
+    }, [page, sortby, rating]);
 
     useEffect(() => {
         setPage(0);
-    }, [sortby]);
+    }, [sortby, rating]);
 
-    return { isLoading, books, setSortBy };
+    return { isLoading, books, setSortBy, setRating };
 }

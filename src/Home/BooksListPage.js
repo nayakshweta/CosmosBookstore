@@ -3,16 +3,15 @@ import { BooksList } from './BooksList';
 import { BooksListItem } from './BooksListItem';
 import { useBooks } from './useBooks';
 import { SortBar } from "./SortBar";
-import { useParams } from 'react-router-dom';
 
 export const BooksListPage = () => {
 
-    const { isLoading, books: allBooks, setSortBy} = useBooks();
+    const { isLoading, books: allBooks, setSortBy, setRating} = useBooks();
 
     const handleSort = (sortbyinput) => {
         setSortBy(sortbyinput);
     }
-    
+
     return (
         <div>
             <SortBar handleSort={(e) => handleSort(e)}/>
