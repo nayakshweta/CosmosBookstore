@@ -431,6 +431,9 @@ nav > .menuToggle > .menu > a > li
 
 .books > ul > li > a > .item > .item-overlay 
 {
+  line-height: normal;
+  color: white;
+  text-align: -webkit-left;
   bottom: 0;
   width: 100%;
   position: absolute;
@@ -438,6 +441,7 @@ nav > .menuToggle > .menu > a > li
   height: 8rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  text-transform: none;
 }
 
 .books > ul > li > a > .item > .item-overlay > .book-title
