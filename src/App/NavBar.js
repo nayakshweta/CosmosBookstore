@@ -6,6 +6,10 @@ export const NavBar = (props) =>  {
         props.handleRating(input);
     }
 
+    const handleFormat = event => {
+        props.handleFormat(event.target.value);
+    }
+
     return (
         <header className="navbar">
             <nav role="navigation">
@@ -41,6 +45,30 @@ export const NavBar = (props) =>  {
                                 </div>
                                 <span className="star-ratings-sprite-rating-text"> & Up</span>
                             </button>
+                        </form>
+                        <br />
+                        <a href="#"><li>Filter By Format</li></a>
+                        <form className="FormatForm">
+                            <label className="FormatEntry">
+                                <input type="checkbox" value="Paperback" id="Paperback" onClick={(e)=>handleFormat(e)}/> Paperback
+                                <span className="checkmark"></span>
+                            </label>
+                            <label className="FormatEntry">
+                                <input type="checkbox" value="Hardcover" id="Hardcover" onClick={(e)=>handleFormat(e)}/> Hardcover
+                                <span className="checkmark"></span>
+                            </label>
+                            <label className="FormatEntry">
+                                <input type="checkbox" value="ebook" id="ebook" onClick={(e)=>handleFormat(e)}/> eBook
+                                <span className="checkmark"></span>
+                            </label>                    
+                            <label className="FormatEntry">
+                                <input type="checkbox" value="Kindle Edition" id="Kindle Edition" onClick={(e)=>handleFormat(e)}/> Kindle Edition
+                                <span className="checkmark"></span>
+                            </label>
+                            <label className="FormatEntry">
+                                <input type="checkbox" value="Audiobook" id="Audiobook" onClick={(e)=>handleFormat(e)}/> Audiobook
+                                <span className="checkmark"></span>
+                            </label>
                         </form>
                     </ul>
                 </div>

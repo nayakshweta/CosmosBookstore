@@ -7,7 +7,9 @@ export const getAllBooksRoute = {
         const page = parseInt(req.query.page);
         const limit = parseInt(req.query.limit);
         const sortby = req.query.sortby;
-        const books = await getAllBooks(page, limit, sortby);
+        const rating = parseInt(req.query.rating);
+        const format = req.query.format;
+        const books = await getAllBooks(page, limit, sortby, rating, format);
         res.status(200).json(books);
     }
 }

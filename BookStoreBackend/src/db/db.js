@@ -10,7 +10,7 @@ export const db = {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        console.log("MongoDB connected")
+        console.log("Cosmos DB's API for MongoDB connected")
         this._dbClient = client;
     },
     getConnection: function() {

@@ -179,8 +179,125 @@ nav > .menuToggle > .menu > a > li
    transform: none;
  }
 
- /* End of Navbar stuff */
+/* left slide done */
 
+
+/* Rating filters left sidebar styling */
+
+ .menuToggle > .menu > .ratingForm > .ratings-container {
+  background-color: transparent;
+  border-style: none;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container:hover {
+  border-style: solid;
+  border-radius: 0.1px;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container:active {
+  border-style: solid;
+  border-radius: 0.1px;
+}
+
+
+.menuToggle > .menu > .ratingForm > .ratings-container > .star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+  display: inline-block;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container > .star-ratings-sprite > .star-ratings-sprite-rating {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 21px;
+  display:block;
+  opacity: 0.7;
+}
+
+.menuToggle > .menu > .ratingForm > .ratings-container  > .star-ratings-sprite-rating-text {
+  color: white;
+  font-size: 1.2rem;
+  height: 21px;
+  vertical-align: top;
+}
+
+/* End of Rating filters left sidebar styles */
+
+
+
+/* Beginning of bookformat filter styles */
+nav > .menuToggle > .menu > .FormatForm > .FormatEntry {
+  color: white;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry:hover {
+  color: #ff7518;
+}
+
+/* hide the default checkbox */
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  vertical-align: middle;
+}
+
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:hover {
+  background-color: #ccc;
+}
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:checked ~ .checkmark{
+  background-color: #ff7518;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
+  left: 5.5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* End of bookformat filter styles */
 
  .navbar > nav > .logo {
   padding-top: 1.1rem;
@@ -310,6 +427,9 @@ nav > .menuToggle > .menu > a > li
 }
 
 /* End of Signup & Login styles */
+
+ /* End of Navbar stuff */
+
 
 /* Sorbar styles */
 
@@ -635,41 +755,3 @@ nav > .menuToggle > .menu > a > li
 }
 
 /* end of genre styles */
-
-
-.menuToggle > .menu > .ratingForm > .ratings-container {
-  background-color: transparent;
-  border-style: none;
-}
-
-.menuToggle > .menu > .ratingForm > .ratings-container:hover {
-  border-style: solid;
-  border-radius: 0.1px;
-}
-
-.menuToggle > .menu > .ratingForm > .ratings-container > .star-ratings-sprite {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
-  font-size: 0;
-  height: 21px;
-  line-height: 0;
-  overflow: hidden;
-  text-indent: -999em;
-  width: 110px;
-  display: inline-block;
-}
-
-.menuToggle > .menu > .ratingForm > .ratings-container > .star-ratings-sprite > .star-ratings-sprite-rating {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
-  background-position: 0 100%;
-  float: left;
-  height: 21px;
-  display:block;
-  opacity: 0.7;
-}
-
-.menuToggle > .menu > .ratingForm > .ratings-container  > .star-ratings-sprite-rating-text {
-  color: white;
-  font-size: 1.2rem;
-  height: 21px;
-  vertical-align: top;
-}
