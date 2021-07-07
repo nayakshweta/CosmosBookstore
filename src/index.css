@@ -478,22 +478,33 @@ nav > .menuToggle > .menu > a > li
   flex-direction: row;
 }
 
-
-
 .book-page > .book-img-and-metadata > .book-img-container {
-  flex: 50%;
+  flex: 48%;
   margin: 0;
   text-align: center;
+  position: relative;
 }
 
 .book-page > .book-img-and-metadata > .book-img-container > .book-image {
-  width: 60%;
-  border-radius: 1rem;
-  border: 1px solid #ff7518;
+  width: 65%;
 }
 
+
+.book-page > .book-img-and-metadata > .book-img-container > .book-title {
+  position: absolute;
+  width: 48%;
+  color: darkblue;
+  top: 16%;
+  font-size: 160%;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0 30% 0 22%;
+  text-align: center;
+}
+
+
 .book-page > .book-img-and-metadata > .book-metadata {
-  flex: 50%;
+  flex: 52%;
   font-family: 'Montserrat', sans-serif;
   color: white;
   margin: 0 10rem 0 0;

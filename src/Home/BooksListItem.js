@@ -25,7 +25,7 @@ export const BooksListItem = ({ book }) => {
                     fontSize: "30px",
                     color: "black",
                     lineHeight: "80px",
-                    fontFamily: "Times New Roman",
+                    fontWeight: "500",
                     textTransform: "uppercase",
                     };
         titleTextImg = title;

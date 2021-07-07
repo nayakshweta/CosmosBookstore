@@ -8,11 +8,14 @@ export const BookPage = () => {
     const { id } = useParams();
     const {book, setBook } = useBook(`/books/${id}`);
 
+    const image = (book.img !== "") ? book.img : "/DefaultBookCover.png";
+
     return (
         <div className="book-page">
             <div className="book-img-and-metadata">
                 <div className="book-img-container">
-                    <img className="book-image" src={book.img}></img>
+                    <img className="book-image" src={image}></img>
+                    {book.img === "" ? <div class="book-title">{(book.title.length < 100 ) ? book.title : (book.title.substring(0, 100) + '...')}</div> : <div />}
                 </div>
                 <div className="book-metadata">
                     <h1>{book.title}</h1>
