@@ -8,18 +8,17 @@ export const getAllBooks = async (page=0, limit=20, sortby, rating, format) => {
         sortCriteria = ["rating", -1];
     }
 
-    let queryList = [];
+    let queryObj = {};
     if (rating) {
-        queryList.push({"rating": {$gt: rating}});
+        queryObj.rating = {$gt: rating};
     }
     if (format) {
         const formatList = Array.isArray(format) ? format : format.split(",");
-        queryList.push({"bookformat" :  {$in: formatList}});
+        queryObj.bookformat = {$in: formatList};
     }
 
     let cursor;
-    
-    cursor = await connection.collection('books').find(...queryList).sort(sortCriteria);
+    cursor = await connection.collection('books').find(queryObj).sort(sortCriteria);
 
     const displayCursor = cursor.limit(limit).skip(page * limit)
 

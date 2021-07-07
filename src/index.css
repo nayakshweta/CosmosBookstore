@@ -194,7 +194,7 @@ nav > .menuToggle > .menu > a > li
   border-radius: 0.1px;
 }
 
-.menuToggle > .menu > .ratingForm > .ratings-container:active {
+.menuToggle > .menu > .ratingForm > .selected {
   border-style: solid;
   border-radius: 0.1px;
 }

@@ -4,10 +4,15 @@ import { NavBar } from './NavBar';
 import { useNavbarFilters } from './useNavbarFilters';
 
 function App() {
-  const { filterQuery, setRating, setFormat} = useNavbarFilters();
+  const { filterQuery, rating, setRating, setFormat} = useNavbarFilters();
 
   const handleRating = (ratinginput) => {
-      setRating(ratinginput);
+      setRating((oldrating) => {
+        if (oldrating === ratinginput) {
+          return "0";
+        }
+        else return ratinginput;
+      });
   }
 
   const handleFormat = (formatinput) => {
@@ -33,7 +38,7 @@ function App() {
 
   return (
     <main className="wrapper">
-      <NavBar handleRating={(input)=> handleRating(input)} handleFormat={(e)=>handleFormat(e)}/>
+      <NavBar rating={rating} handleRating={(input)=> handleRating(input)} handleFormat={(e)=>handleFormat(e)}/>
       <Routes filterQuery={filterQuery}/>
     </main>
   );

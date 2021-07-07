@@ -9,5 +9,5 @@ export const useNavbarFilters = () => {
         setfilterQuery("&rating=" + rating + "&format=" + format);
     }, [rating, format]);
 
-    return { filterQuery, setRating, setFormat };
+    return { filterQuery, rating, setRating, setFormat };
 }
