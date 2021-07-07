@@ -3,10 +3,10 @@ import { BooksList } from './BooksList';
 import { BooksListItem } from './BooksListItem';
 import { useBooks } from './useBooks';
 import { SortBar } from "./SortBar";
+import { useEffect } from 'react';
 
-export const BooksListPage = () => {
-
-    const { isLoading, books: allBooks, setSortBy, setRating} = useBooks();
+export const BooksListPage = (props) => {
+    const { isLoading, books: allBooks, sortby, setSortBy} = useBooks(props.filterQuery);
 
     const handleSort = (sortbyinput) => {
         setSortBy(sortbyinput);
@@ -14,7 +14,7 @@ export const BooksListPage = () => {
 
     return (
         <div>
-            <SortBar handleSort={(e) => handleSort(e)}/>
+            <SortBar sortby={sortby} handleSort={(e) => handleSort(e)}/>
             <BooksList 
                 isLoading={isLoading}
                 books={allBooks}

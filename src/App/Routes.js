@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { BookPage } from './Book';
-import { BooksListPage } from './Home';
+import { BookPage } from '../Book';
+import { BooksListPage } from '../Home';
 
 const routes = [ {
     path: '/',
@@ -15,7 +15,7 @@ const routes = [ {
 }
 ];
 
-export const Routes = () => (
+export const Routes = (props) => (
     <Router>
         <Switch>
         {routes.map((route, index) => (
@@ -24,7 +24,7 @@ export const Routes = () => (
                 path={route.path}
                 exact={route.exact}
             >
-                <route.Component />
+                <route.Component filterQuery={props.filterQuery}/>
             </Route>
         ))}
         </Switch>

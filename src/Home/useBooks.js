@@ -1,44 +1,42 @@
 import { useState, useEffect } from 'react';
 
-export const useBooks = () => {
-    
+export const useBooks = (filterQuery) => {
     const [isLoading, setIsLoading] = useState(true);
     const [books, setBooks] = useState([]);
     const [page, setPage] = useState(0);
     const [sortby, setSortBy] = useState("");
-    const [rating, setRating] = useState(0);
 
     const loadBooks = async () => {
-        let url = "/books?limit=20".concat("&sortby=").concat(sortby).concat("&rating=").concat(rating);
-        console.log(url);
-        const response = await fetch(url + "&page=" + page);
+        const fetchUrl = "/books?limit=20" + "&page=" + page + "&sortby=" + sortby + filterQuery;
+        console.log("Fetched url is", fetchUrl);
+        const response = await fetch(fetchUrl);
         const new_books = await response.json();
-        if (page==0) {
-            setBooks(new_books);
-        }
-        else {
-            setBooks(old_books => {
-                return [...old_books, ...new_books]
-            });
-        }
+        setBooks(old_books => {
+                return page==0? [...new_books] : [...old_books, ...new_books]
+        });
         setIsLoading(false);
     }
 
     function handleScroll() {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
 
-       setPage(page => page+1);
-      }
+        setPage(page => page+1);
+    }
 
     useEffect(() => {
         loadBooks();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [page, sortby, rating]);
+    }, [page, sortby, filterQuery]);
 
     useEffect(() => {
         setPage(0);
-    }, [sortby, rating]);
+    }, [sortby]);
 
-    return { isLoading, books, setSortBy, setRating };
+    useEffect(() => {
+        setSortBy("");
+        setPage(0);
+    }, [filterQuery]);
+
+    return { isLoading, books, sortby, setSortBy };
 }
