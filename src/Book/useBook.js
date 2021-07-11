@@ -11,7 +11,7 @@ export const useBook = (url) => {
 
     useEffect(() => {
         loadBook();
-    }, []);
+    }, [book]);
 
     return { book, setBook };
 }

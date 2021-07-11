@@ -786,3 +786,60 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
 }
 
 /* End of Comment list styles */
+
+.book-page > .comments-container > .comment-input-box {
+  margin: 2.5rem 0 0 2.2rem;
+}
+.book-page > .comments-container > .comment-input-box > .comment-input-name {
+  font-size: 0.9rem;
+  width: 30%;
+  border: none;
+  padding: 7px;
+  border-radius: .5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.book-page > .comments-container > .comment-input-box > .comment-input-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  width: 99%;
+  height: 8rem;
+  border: none;
+  border-radius: .5rem;
+  padding: 7px;
+}
+
+.book-page > .comments-container > .comment-input-box > .comment-input-name:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.book-page > .comments-container > .comment-input-box > .comment-input-text:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.book-page > .comments-container > .comment-input-box > .comment-button-div {
+  text-align: right;
+  margin: none;
+}
+.book-page > .comments-container > .comment-input-box > .comment-button-div > .comment-button  {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  border:none;
+  border-radius: .5rem;
+  background: #ff7518;
+  font-weight: 300;
+  color: #EDFFEC;
+  height: 2.8rem;
+  width: 10rem;
+}
+
+.book-page > .comments-container > .comment-input-box > .comment-button-div> .comment-button:hover {
+  cursor: pointer;
+  background: hsl(24, 92%, 36%);
+  transition: all 0.5s ease;
+  -webkit-transition: all .5s ease;
+}
