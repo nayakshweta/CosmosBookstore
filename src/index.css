@@ -755,3 +755,34 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
 }
 
 /* end of genre styles */
+
+
+/* Comment list styles */
+
+.book-page > .comments-container {
+  color: white;
+  margin: 4rem 7% 4rem 7.2%;
+}
+
+.book-page > .comments-container > .comments-list > .comment-entry{
+  list-style-type: none;
+  margin-bottom: 2rem;
+}
+
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name{
+  line-height: 2rem;
+}
+
+
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-text{
+  font-style: italic;
+}
+
+
+@media (max-width: 1024px) {
+  .book-page > .comments-container {
+    margin: 4rem 1.5% 4rem 1.5%;
+  }
+}
+
+/* End of Comment list styles */

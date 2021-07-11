@@ -10,6 +10,13 @@ export const BookPage = () => {
 
     const image = (book.img !== "") ? book.img : "/DefaultBookCover.png";
 
+    const commentList = book.reviewcomments;
+    const commentListMap = commentList === undefined? <div></div> : commentList.map((entry) => <li className="comment-entry">
+                                                                                                        <b className="comment-name">{entry.name}</b> says
+                                                                                                        <div className="comment-text">{entry.comment}</div>
+                                                                                                </li>);
+
+
     return (
         <div className="book-page">
             <div className="book-img-and-metadata">
@@ -32,6 +39,12 @@ export const BookPage = () => {
                         <b>ISBN: &nbsp;</b> <i>{book.isbn}</i>
                     </p>
                 </div>
+            </div>
+            <div className="comments-container">
+                <h3>Comments:</h3>
+                <ul className="comments-list">
+                    {commentListMap}
+                </ul>
             </div>
         </div>
     );
