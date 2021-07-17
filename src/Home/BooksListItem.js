@@ -2,7 +2,7 @@ import React from 'react';
 
 export const BooksListItem = ({ book }) => {
 
-    const title = (book.title.length < 100 ) ? book.title : (book.title.substring(0, 100) + '...');
+    const title = (book.title.length < 75 ) ? book.title : (book.title.substring(0, 75) + '...');
     const author = book.author.length < 100 ? book.author : book.author.substring(0,100) + '...';
 
     let myStyle;

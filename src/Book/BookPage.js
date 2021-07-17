@@ -5,6 +5,7 @@ import { Rating } from "./Rating";
 import { Genres } from "./Genres";
 import { updateComment } from "./updateComment";
 import { useRef } from 'react';
+import { removeComment } from "./removeComment";
 
 export const BookPage = () => {
     const { id } = useParams();
@@ -13,10 +14,24 @@ export const BookPage = () => {
     const image = (book.img !== "") ? book.img : "/DefaultBookCover.png";
 
     const commentList = book.reviewcomments;
-    const commentListMap = commentList === undefined? <div></div> : commentList.map((entry) => <li className="comment-entry">
-                                                                                                        <b className="comment-name">{entry.name}</b> says
-                                                                                                        <div className="comment-text">{entry.comment}</div>
-                                                                                                </li>);
+    const commentListMap = commentList === undefined? <div></div> : commentList.map((entry, index) => {
+        if (entry === null) {
+            return (<div></div>);
+        }
+        else {
+            return (
+                <li className="comment-entry" key={index}>
+                    <div className="comment-name-box">
+                        <b className="comment-name">{entry.name}</b> says
+                        <button className="remove-icon-btn remove-btn" onClick={() => handleDeleteComment(index)}>  
+                            <div className="remove-btn-txt" >Remove</div>
+                        </button>
+                    </div>
+                    <div className="comment-text">{entry.comment}</div>
+                </li>
+            )
+        }
+    });
 
     let nameInput = useRef(null);
     let commentInput = useRef(null);
@@ -29,6 +44,12 @@ export const BookPage = () => {
             updateComment(`/books/${id}/comments`, {"name": nameInput.current.value, "comment": commentInput.current.value});
             nameInput.current.value = "";
             commentInput.current.value = "";
+        }
+    }
+
+    const handleDeleteComment = (index) =>{
+        if (index !== undefined) {
+            removeComment(`/books/${id}/comments/${index}`);
         }
     }
 

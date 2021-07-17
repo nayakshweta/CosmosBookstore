@@ -769,8 +769,9 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
   margin-bottom: 2rem;
 }
 
-.book-page > .comments-container > .comments-list > .comment-entry > .comment-name{
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box{
   line-height: 2rem;
+  display: inline;
 }
 
 
@@ -787,6 +788,7 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
 
 /* End of Comment list styles */
 
+/* Comment update styles */
 .book-page > .comments-container > .comment-input-box {
   margin: 2.5rem 0 0 2.2rem;
 }
@@ -843,3 +845,58 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
   transition: all 0.5s ease;
   -webkit-transition: all .5s ease;
 }
+/* End of Comment update styles */
+
+/* Comment delete button styles */
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-icon-btn {
+  width: 35px;
+  height: 30px;
+  border: 0.1px solid #cdcdcd;
+  background: #232323;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.5s ease-in-out;
+  float: right;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn:hover {
+  width: 120px;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn::before,
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn::after {
+  transition: width 0.5s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: #ff7518;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-icon-btn:focus {
+  outline: none;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn > .remove-btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: white;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn:hover::before,
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+.book-page > .comments-container > .comments-list > .comment-entry > .comment-name-box > .remove-btn:hover .remove-btn-txt {
+  opacity: 1;
+}
+/* End of Comment delete button styles */

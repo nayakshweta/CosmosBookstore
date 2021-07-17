@@ -6,6 +6,5 @@ export const updateComment = async (url, body) => {
             'Content-Type': 'application/json'
         }
     });
-    const book = await response.json();
-    return book;
+    await response.json();
 }
