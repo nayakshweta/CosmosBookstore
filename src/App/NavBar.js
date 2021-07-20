@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-export const NavBar = ({rating, handleRating, handleFormat, handleSearch}) =>  {
+export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch}) =>  {
     const [inputText, setInputText] = useState("");
 
     const handleInputChange = event => {
@@ -25,6 +25,8 @@ export const NavBar = ({rating, handleRating, handleFormat, handleSearch}) =>  {
             handleSearch(inputText);
         }
     }
+
+    const formatList = format.split(',');
 
     return (
         <header className="navbar">
@@ -67,23 +69,23 @@ export const NavBar = ({rating, handleRating, handleFormat, handleSearch}) =>  {
                         <form className="FormatForm">
                             <label className="FormatEntry">
                                 <input type="checkbox" value="Paperback" id="Paperback" onClick={(e)=>handleFormatFilter(e)}/> Paperback
-                                <span className="checkmark"></span>
+                                <span className={"checkmark" + (formatList.includes("Paperback")?" checked":"")}></span>
                             </label>
                             <label className="FormatEntry">
                                 <input type="checkbox" value="Hardcover" id="Hardcover" onClick={(e)=>handleFormatFilter(e)}/> Hardcover
-                                <span className="checkmark"></span>
+                                <span className={"checkmark" + (formatList.includes("Hardcover")?" checked":"")}></span>
                             </label>
                             <label className="FormatEntry">
                                 <input type="checkbox" value="ebook" id="ebook" onClick={(e)=>handleFormatFilter(e)}/> eBook
-                                <span className="checkmark"></span>
+                                <span className={"checkmark" + (formatList.includes("ebook")?" checked":"")}></span>
                             </label>                    
                             <label className="FormatEntry">
                                 <input type="checkbox" value="Kindle Edition" id="Kindle Edition" onClick={(e)=>handleFormatFilter(e)}/> Kindle Edition
-                                <span className="checkmark"></span>
+                                <span className={"checkmark" + (formatList.includes("Kindle Edition")?" checked":"")}></span>
                             </label>
                             <label className="FormatEntry">
                                 <input type="checkbox" value="Audiobook" id="Audiobook" onClick={(e)=>handleFormatFilter(e)}/> Audiobook
-                                <span className="checkmark"></span>
+                                <span className={"checkmark" + (formatList.includes("Audiobook")?" checked":"")}></span>
                             </label>
                         </form>
                     </ul>

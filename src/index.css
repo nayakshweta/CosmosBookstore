@@ -268,24 +268,24 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark {
 nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:hover {
   background-color: #ccc;
 }
-nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:checked ~ .checkmark{
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:checked ~ .checked{
   background-color: #ff7518;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:checked ~ .checkmark:after {
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > input:checked ~ .checked:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checkmark:after {
+nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
   left: 5.5px;
   top: 1px;
   width: 5px;

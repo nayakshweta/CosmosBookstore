@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useBooks = (filterQuery, searchText) => {
+export const useBooks = (rating, format, searchText) => {
     const [isLoading, setIsLoading] = useState(true);
     const [books, setBooks] = useState([]);
     const [page, setPage] = useState(0);
@@ -9,10 +9,10 @@ export const useBooks = (filterQuery, searchText) => {
     const loadBooks = async () => {
         let fetchUrl;
         if (searchText === "") {
-            fetchUrl = "/books?limit=20" + "&page=" + page + "&sortby=" + sortby + filterQuery;
+            fetchUrl = "/books?limit=20" + "&page=" + page + "&rating=" + rating + "&format=" + format + "&sortby=" + sortby;
         } 
         else {
-            fetchUrl = "/search?top=20" + "&skip=" + page*20 + "&search=" + searchText;
+            fetchUrl = "/search?top=20" + "&skip=" + page*20 + "&search=" + searchText + "&orderby=" + sortby + "&rating=" + rating + "&format=" + format;
         }
         console.log("Fetched url is", fetchUrl);
         const response = await fetch(fetchUrl);
@@ -33,7 +33,7 @@ export const useBooks = (filterQuery, searchText) => {
         loadBooks();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [page, sortby, filterQuery, searchText]);
+    }, [page, sortby, rating, format, searchText]);
 
     useEffect(() => {
         setPage(0);
@@ -42,7 +42,7 @@ export const useBooks = (filterQuery, searchText) => {
     useEffect(() => {
         setSortBy("");
         setPage(0);
-    }, [filterQuery]);
+    }, [rating, format]);
 
     useEffect(() => {
         setSortBy("");
