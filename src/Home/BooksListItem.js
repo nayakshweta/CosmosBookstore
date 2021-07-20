@@ -4,6 +4,7 @@ export const BooksListItem = ({ book }) => {
 
     const title = (book.title.length < 75 ) ? book.title : (book.title.substring(0, 75) + '...');
     const author = book.author.length < 100 ? book.author : book.author.substring(0,100) + '...';
+    const bookId = book._id ? book._id : book.doc_id;
 
     let myStyle;
     let titleTextImg;
@@ -32,8 +33,10 @@ export const BooksListItem = ({ book }) => {
         authorTextImg = author;
     }
 
+
+
     return (<li>
-        <a href={"/books/" + book._id } target="_blank">
+        <a href={"/books/" + bookId} target="_blank">
         <div className="item" style={myStyle}>{titleTextImg}
             <div className="item-overlay">
                 <div className="book-title">{title}</div>

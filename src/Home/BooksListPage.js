@@ -6,7 +6,7 @@ import { SortBar } from "./SortBar";
 import { useEffect } from 'react';
 
 export const BooksListPage = (props) => {
-    const { isLoading, books: allBooks, sortby, setSortBy} = useBooks(props.filterQuery);
+    const { isLoading, books: allBooks, sortby, setSortBy} = useBooks(props.filterQuery, props.searchText);
 
     const handleSort = (sortbyinput) => {
         setSortBy(sortbyinput);

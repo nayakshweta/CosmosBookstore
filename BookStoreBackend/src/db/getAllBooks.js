@@ -27,7 +27,7 @@ export const getAllBooks = async (page=0, limit=20, sortby, rating, format) => {
     // Use cursor to the books list based upon the query criteria for the find method
     // Project title, author & img fields to return
     let cursor;
-    cursor = await connection.collection('books').find(queryObj, {title:1, author:1, img:1});
+    cursor = await connection.collection('books').find(queryObj).project({"title":1, "author":1, "img":1});
 
     // Apply the sort criteria on the cursor
     cursor = cursor.sort(sortCriteria);

@@ -1,13 +1,29 @@
 import React from 'react';
+import { useState } from 'react';
 
+export const NavBar = ({rating, handleRating, handleFormat, handleSearch}) =>  {
+    const [inputText, setInputText] = useState("");
 
-export const NavBar = ({rating, handleRating, handleFormat}) =>  {
+    const handleInputChange = event => {
+        setInputText(event.target.value);
+    }
+
     const handleRatingFilter = input => {
         handleRating(input);
     }
 
     const handleFormatFilter = event => {
         handleFormat(event.target.value);
+    }
+
+    const handleSearchButton = () => {
+        handleSearch(inputText);
+    }
+
+    const handleSearchInputEnter = (event) => {
+        if (event.key == 'Enter') {
+            handleSearch(inputText);
+        }
     }
 
     return (
@@ -77,8 +93,8 @@ export const NavBar = ({rating, handleRating, handleFormat}) =>  {
             
             <div className="search-box">
                 <div className="field">
-                    <input type="search" name="search" placeholder="Find your next book to read..." className="search-query"/>
-                    <button type="submit" className="search-submit-btn">Search</button>
+                    <input type="search" name="search" placeholder="Find your next book to read..." className="search-query" onChange={handleInputChange} onKeyPress={(e)=>handleSearchInputEnter(e)}/>
+                    <button type="submit" className="search-submit-btn" onClick={handleSearchButton}>Search</button>
                 </div>
             </div>
             <div className="signup"><button className="signup-btn">Sign Up</button></div>
