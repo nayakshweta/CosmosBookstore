@@ -4,7 +4,7 @@ import { NavBar } from './NavBar';
 import { useNavbarFilters } from './useNavbarFilters';
 
 function App() {
-  const { filterQuery, rating, setRating, setFormat} = useNavbarFilters();
+  const {rating, setRating, format, setFormat, searchText, setSearchText} = useNavbarFilters();
 
   const handleRating = (ratinginput) => {
       setRating((oldrating) => {
@@ -17,7 +17,7 @@ function App() {
 
   const handleFormat = (formatinput) => {
       setFormat((oldFormatInput) => {
-        if (oldFormatInput == "") {
+        if (oldFormatInput === "") {
           return formatinput;
         } else  {
             const oldFormatList = Array.isArray(oldFormatInput) ? oldFormatInput : oldFormatInput.split(",");
@@ -36,10 +36,14 @@ function App() {
       );
   }
 
+  const handleSearch = (searchTextInput) => {
+    setSearchText(searchTextInput);
+  }
+
   return (
     <main className="wrapper">
-      <NavBar rating={rating} handleRating={(input)=> handleRating(input)} handleFormat={(e)=>handleFormat(e)}/>
-      <Routes filterQuery={filterQuery}/>
+      <NavBar rating={rating} format={format} handleRating={(input)=> handleRating(input)} handleFormat={(e)=>handleFormat(e)} handleSearch={(input)=>handleSearch(input)}/>
+      <Routes rating={rating} format={format} searchText={searchText}/>
     </main>
   );
 }
