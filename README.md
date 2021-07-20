@@ -1,6 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Cosmos Bookstore
 
 In the project directory, you can run:
 
@@ -66,3 +65,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Deploy to Azure
+
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)

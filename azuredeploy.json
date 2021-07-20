@@ -1,0 +1,160 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "locationName": {
+      "type": "string",
+      "defaultValue": "West US 2"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "westus2"
+    },
+    "cosmos_name": {
+      "type": "string",
+      "defaultValue": "cosmosbookstore"
+    }
+  },
+  "variables": {
+    "keyvault_name": "[take(concat('cosmosbookstore',uniqueString(resourceGroup().id)),24)]",
+    "cosmosdb_name": "[take(concat('cosmosbookstore',uniqueString(resourceGroup().id)),24)]",
+    "appservice_name": "[take(concat('cosmosbookstore',uniqueString(resourceGroup().id)),24)]",
+    "appserviceplan_name": "[take(concat('cosmosbookstore',uniqueString(resourceGroup().id)),24)]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2020-04-01",
+      "kind": "MongoDB",
+      "type": "Microsoft.DocumentDb/databaseAccounts",
+      "name": "[variables('cosmosdb_name')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "locations": [
+          {
+            "id": "[concat(parameters('cosmos_name'), '-', parameters('location'))]",
+            "failoverPriority": 0,
+            "locationName": "[parameters('locationName')]"
+          }
+        ],
+        "backupPolicy": {
+          "type": "Periodic",
+          "periodicModeProperties": {
+            "backupIntervalInMinutes": 1440,
+            "backupRetentionIntervalInHours": 48
+          }
+        },
+        "isVirtualNetworkFilterEnabled": false,
+        "virtualNetworkRules": [],
+        "ipRules": [],
+        "dependsOn": [],
+        "enableMultipleWriteLocations": false,
+        "capabilities": [
+          {
+            "name": "EnableMongo"
+          },
+          {
+            "name": "DisableRateLimitingResponses"
+          }
+        ],
+        "apiProperties": {
+          "serverVersion": "3.6"
+        },
+        "enableFreeTier": true
+      },
+      "tags": {
+        "hidden-cosmos-mmspecial": "",
+        "CosmosAccountType": "Non-Production"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('appservice_name')]",
+      "location": "[parameters('location')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "dependsOn": [
+        "[concat('Microsoft.Web/serverfarms/', variables('appserviceplan_name'))]"
+      ],
+      "tags": {},
+      "properties": {
+        "name": "[variables('appservice_name')]",
+        "siteConfig": {
+          "appSettings": [],
+          "linuxFxVersion": "DOTNETCORE|5.0",
+          "alwaysOn": true
+        },
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplan_name'))]",
+        "clientAffinityEnabled": false,
+        "hostingEnvironment": ""
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('appserviceplan_name')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "tags": {},
+      "sku": {
+        "Tier": "Basic",
+        "Name": "B1"
+      },
+      "kind": "linux",
+      "properties": {
+        "name": "[variables('appserviceplan_name')]",
+        "workerSize": "0",
+        "workerSizeId": "0",
+        "numberOfWorkers": "1",
+        "reserved": true
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2018-02-14",
+      "name": "[variables('keyvault_name')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('appservice_name'))]"
+      ],
+      "tags": {},
+      "properties": {
+        "enabledForDeployment": true,
+        "enabledForTemplateDeployment": true,
+        "enabledForDiskEncryption": true,
+        "enableRbacAuthorization": false,
+        "accessPolicies": [
+          {
+            "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appservice_name')), '2016-08-01', 'Full').identity.principalId]",
+            "tenantId": "[subscription().tenantId]",
+            "permissions": {
+              "keys": [
+                "Get"
+              ],
+              "secrets": [
+                "Get"
+              ],
+              "certificates": []
+            },
+            "applicationId": ""
+          }
+        ],
+        "tenantId": "[subscription().tenantId]",
+        "sku": {
+          "name": "Standard",
+          "family": "A"
+        },
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90,
+        "networkAcls": {
+          "defaultAction": "allow",
+          "bypass": "AzureServices",
+          "ipRules": [],
+          "virtualNetworkRules": []
+        }
+      }
+    }
+  ]
+}
