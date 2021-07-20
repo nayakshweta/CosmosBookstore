@@ -17,7 +17,7 @@ function App() {
 
   const handleFormat = (formatinput) => {
       setFormat((oldFormatInput) => {
-        if (oldFormatInput == "") {
+        if (oldFormatInput === "") {
           return formatinput;
         } else  {
             const oldFormatList = Array.isArray(oldFormatInput) ? oldFormatInput : oldFormatInput.split(",");

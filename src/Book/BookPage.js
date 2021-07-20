@@ -9,7 +9,7 @@ import { removeComment } from "./removeComment";
 
 export const BookPage = () => {
     const { id } = useParams();
-    const {book, setBook } = useBook(`/books/${id}`);
+    const {book} = useBook(`/books/${id}`);
 
     const image = (book.img !== "") ? book.img : "/DefaultBookCover.png";
 
@@ -58,7 +58,7 @@ export const BookPage = () => {
         <div className="book-page">
             <div className="book-img-and-metadata">
                 <div className="book-img-container">
-                    <img className="book-image" src={image}></img>
+                    <img className="book-image" src={image} alt={"cover of the book "+book.title}></img>
                     {book.img === "" ? <div class="book-title">{(book.title.length < 100 ) ? book.title : (book.title.substring(0, 100) + '...')}</div> : <div />}
                 </div>
                 <div className="book-metadata">
@@ -66,15 +66,15 @@ export const BookPage = () => {
                     <h2>By: {book.author}</h2>
                     <Rating rating={book.rating} totalratings={book.totalratings} />
                     <Genres genres={book.genre}/>
-                    <p>
+                    <div>
                         <h3>Summary:</h3>
                         {book.desc}
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <b>Formats: &nbsp;</b> <i>{book.bookformat}</i>
                         <br />
                         <b>ISBN: &nbsp;</b> <i>{book.isbn}</i>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="comments-container">

@@ -8,7 +8,7 @@ export const Genres = ({genres}) => {
     }
     
     const genres_components_list = genres.map(genre => (
-        <Genre genre={genre}/>));
+        <Genre key={genre} genre={genre}/>));
 
     return (
         <div className="genres-container">
