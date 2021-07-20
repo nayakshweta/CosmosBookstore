@@ -24,7 +24,7 @@ export const Routes = (props) => (
                 path={route.path}
                 exact={route.exact}
             >
-                <route.Component filterQuery={props.filterQuery} searchText={props.searchText}/>
+                <route.Component rating={props.rating} format={props.format} searchText={props.searchText}/>
             </Route>
         ))}
         </Switch>
