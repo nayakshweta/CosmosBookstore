@@ -125,7 +125,7 @@ nav > .menuToggle > input:checked ~ span:nth-last-child(2)
 }
 
  
-nav > .menuToggle > ul > a
+nav > .menuToggle > ul > li
 {
   text-decoration: none;
   color: white;
@@ -133,7 +133,7 @@ nav > .menuToggle > ul > a
   transition: color 0.3s ease;
 }
 
-nav > .menuToggle > ul > a:hover
+nav > .menuToggle > ul > li:hover
 {
   color: #ff7518;
 }
@@ -165,7 +165,7 @@ nav > .menuToggle > .menu
 
 }
 
-nav > .menuToggle > .menu > a > li
+nav > .menuToggle > .menu > li
 {
   padding: 10px 0;
   font-size: 22px;
@@ -641,7 +641,7 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
   font-weight: 500;
 }
 
-.book-page > .book-img-and-metadata > .book-metadata > p {
+.book-page > .book-img-and-metadata > .book-metadata > div {
   padding-top: 2rem;
   font-size: 1rem;
   line-height: 2rem;

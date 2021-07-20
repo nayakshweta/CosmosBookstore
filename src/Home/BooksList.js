@@ -7,7 +7,7 @@ export const BooksList = ({isLoading, books, ListItemComponent}) => {
     }
 
     const booksMap = books.map(book => (
-        <ListItemComponent key={book._id} book={book} />));
+        <ListItemComponent key={book._id ? book._id : book.doc_id} book={book} />));
     
     return <section className="books" id="books"><ul>{booksMap}</ul></section>
 

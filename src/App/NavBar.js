@@ -21,7 +21,7 @@ export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch
     }
 
     const handleSearchInputEnter = (event) => {
-        if (event.key == 'Enter') {
+        if (event.key === 'Enter') {
             handleSearch(inputText);
         }
     }
@@ -37,27 +37,27 @@ export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch
                     <span></span>
                     <span></span>
                     <ul className="menu">
-                        <a href="#"><li>Filter By Rating</li></a>
+                        <li>Filter By Rating</li>
                         <form className="ratingForm">
-                            <button type="button" className={"ratings-container" + (rating==4?" selected":"")} value="4" onClick={() => handleRatingFilter(4)}>
+                            <button type="button" className={"ratings-container" + (rating===4?" selected":"")} value="4" onClick={() => handleRatingFilter(4)}>
                                 <div className="star-ratings-sprite" value="4" >
                                     <span style={{width: "80%"}} className="star-ratings-sprite-rating" value="4"></span>
                                 </div>
                                 <span className="star-ratings-sprite-rating-text"> & Up</span>
                             </button>
-                            <button type="button" className={"ratings-container" + (rating==3?" selected":"")} value="3" onClick={() => handleRatingFilter(3)}>
+                            <button type="button" className={"ratings-container" + (rating===3?" selected":"")} value="3" onClick={() => handleRatingFilter(3)}>
                                 <div className="star-ratings-sprite">
                                     <span style={{width: "60%"}} className="star-ratings-sprite-rating"></span>
                                 </div>
                                 <span className="star-ratings-sprite-rating-text"> & Up</span>
                             </button>
-                            <button type="button" className={"ratings-container" + (rating==2?" selected":"")} value="2" onClick={() => handleRatingFilter(2)}>
+                            <button type="button" className={"ratings-container" + (rating===2?" selected":"")} value="2" onClick={() => handleRatingFilter(2)}>
                                 <div className="star-ratings-sprite">
                                     <span style={{width: "40%"}} className="star-ratings-sprite-rating"></span>
                                 </div>
                                 <span className="star-ratings-sprite-rating-text"> & Up</span>
                             </button>
-                            <button type="button" className={"ratings-container" + (rating==1?" selected":"")} value="1" onClick={() => handleRatingFilter(1)}>
+                            <button type="button" className={"ratings-container" + (rating===1?" selected":"")} value="1" onClick={() => handleRatingFilter(1)}>
                                 <div className="star-ratings-sprite">
                                     <span style={{width: "20%"}} className="star-ratings-sprite-rating"></span>
                                 </div>
@@ -65,7 +65,7 @@ export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch
                             </button>
                         </form>
                         <br />
-                        <a href="#"><li>Filter By Format</li></a>
+                        <li>Filter By Format</li>
                         <form className="FormatForm">
                             <label className="FormatEntry">
                                 <input type="checkbox" value="Paperback" id="Paperback" onClick={(e)=>handleFormatFilter(e)}/> Paperback
