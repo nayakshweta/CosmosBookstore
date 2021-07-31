@@ -10,7 +10,8 @@ export const searchBooksRoute = {
         const orderby = req.query.orderby;
         const rating = req.query.rating;
         const format = req.query.format;
-        const books = await searchBooks(skip, top, searchString, orderby, rating, format);
+        const genre = req.query.genre;
+        const books = await searchBooks(skip, top, searchString, orderby, rating, format, genre);
         res.status(200).json(books);
     }
 }

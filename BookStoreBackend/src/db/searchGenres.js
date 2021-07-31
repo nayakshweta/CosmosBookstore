@@ -10,6 +10,6 @@ export const searchGenres = async (searchString) => {
                                                         {$group: {_id: null, genres: {$push: "$genresList"}}}
                                                     ])
 
-    const genres = await aggCursor.toArray()
+    const genres = await aggCursor.toArray();
     return genres[0].genres;
 }
