@@ -5,7 +5,7 @@ import { useBooks } from './useBooks';
 import { SortBar } from "./SortBar";
 
 export const BooksListPage = (props) => {
-    const { isLoading, books: allBooks, sortby, setSortBy} = useBooks(props.rating, props.format, props.searchText);
+    const { isLoading, books: allBooks, sortby, setSortBy} = useBooks(props.rating, props.format, props.genre, props.searchText);
 
     const handleSort = (sortbyinput) => {
         setSortBy(sortbyinput);

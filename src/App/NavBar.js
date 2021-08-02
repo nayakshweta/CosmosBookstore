@@ -1,11 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
+import { useGenres } from './useGenres';
+import { useGenresListVisible } from './useGenresListVisible';
 
-export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch}) =>  {
-    const [inputText, setInputText] = useState("");
+export const NavBar = ({rating, format, genre, handleRating, handleFormat, handleSearch, handleGenre}) =>  {
+    const [searchInput, setSearchInput] = useState("");
+    const {genreInput, setGenreInput, autocompleteGenresList} = useGenres(genre);
+    const {ref, isGenreListVisible} = useGenresListVisible(false, genre);
 
-    const handleInputChange = event => {
-        setInputText(event.target.value);
+    const handleSearchInputChange = event => {
+        setSearchInput(event.target.value);
+    }
+
+    const handleGenreInputChange = event => {
+        setGenreInput(event.target.value);
     }
 
     const handleRatingFilter = input => {
@@ -16,17 +24,36 @@ export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch
         handleFormat(event.target.value);
     }
 
+     const handleGenreFilter = (genre) => {
+        handleGenre(genre);
+    }
+
     const handleSearchButton = () => {
-        handleSearch(inputText);
+        handleSearch(searchInput);
     }
 
     const handleSearchInputEnter = (event) => {
         if (event.key === 'Enter') {
-            handleSearch(inputText);
+            handleSearch(searchInput);
         }
     }
 
     const formatList = format.split(',');
+
+    const autocompleteGenresMap = autocompleteGenresList.map(genre => (
+        <li key={genre} value={genre} onClick={()=>handleGenreFilter(genre)}>{genre}</li>
+        ));
+
+    const selectedGenreList = genre.split(',');
+
+    const selectedGenresMap = selectedGenreList.map((genre) => (
+        <li key={genre} className="genre">
+            <span>{genre}
+                <button className="genre-remove" onClick={()=>handleGenreFilter(genre)}>x</button>
+            </span>
+        </li>
+        ));
+
 
     return (
         <header className="navbar">
@@ -88,6 +115,13 @@ export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch
                                 <span className={"checkmark" + (formatList.includes("Audiobook")?" checked":"")}></span>
                             </label>
                         </form>
+                        <br />
+                        <li>Filter By Genre</li>
+                        <form className="genreForm" ref={ref}>
+                            <input type="search" name="genresearch" placeholder="Find the genre.." className="genre-search" autocomplete="off" onChange={handleGenreInputChange} value={genreInput}></input>
+                            {isGenreListVisible ? <ul className="genreList">{autocompleteGenresMap} </ul> : <div></div> }
+                        </form>
+                        {genre === "" ? <div></div> : <div className="genres-container"><ul>{selectedGenresMap}</ul></div>}
                     </ul>
                 </div>
                 <a className="logo" href="/"><span className="logo-text">Cosmos Books</span></a>
@@ -95,7 +129,7 @@ export const NavBar = ({rating, format, handleRating, handleFormat, handleSearch
             
             <div className="search-box">
                 <div className="field">
-                    <input type="search" name="search" placeholder="Find your next book to read..." className="search-query" onChange={handleInputChange} onKeyPress={(e)=>handleSearchInputEnter(e)}/>
+                    <input type="search" name="search" placeholder="Find your next book to read..." className="search-query" autocomplete="off" onChange={handleSearchInputChange} onKeyPress={(e)=>handleSearchInputEnter(e)}/>
                     <button type="submit" className="search-submit-btn" onClick={handleSearchButton}>Search</button>
                 </div>
             </div>
