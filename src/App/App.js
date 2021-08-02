@@ -4,7 +4,7 @@ import { NavBar } from './NavBar';
 import { useNavbarFilters } from './useNavbarFilters';
 
 function App() {
-  const {rating, setRating, format, setFormat, searchText, setSearchText} = useNavbarFilters();
+  const {rating, setRating, format, setFormat, searchText, setSearchText, genre, setGenre} = useNavbarFilters();
 
   const handleRating = (ratinginput) => {
       setRating((oldrating) => {
@@ -36,14 +36,35 @@ function App() {
       );
   }
 
+  const handleGenre = (genreinput) => {
+    setGenre((oldGenreInput) => {
+      if (oldGenreInput === "") {
+        return genreinput;
+      } else  {
+          const oldGenreList = Array.isArray(oldGenreInput) ? oldGenreInput : oldGenreInput.split(",");
+          if (oldGenreList.includes(genreinput)) {
+            var index = oldGenreList.indexOf(genreinput);
+            if (index > -1) {
+              oldGenreList.splice(index, 1);
+            }
+            return oldGenreList === [] ? "" : oldGenreList.join();
+          }
+          else {
+            return oldGenreInput + "," + genreinput;
+          }
+        }
+      }
+    );
+  }
+
   const handleSearch = (searchTextInput) => {
     setSearchText(searchTextInput);
   }
 
   return (
     <main className="wrapper">
-      <NavBar rating={rating} format={format} handleRating={(input)=> handleRating(input)} handleFormat={(e)=>handleFormat(e)} handleSearch={(input)=>handleSearch(input)}/>
-      <Routes rating={rating} format={format} searchText={searchText}/>
+      <NavBar rating={rating} format={format} genre={genre} handleRating={(input)=> handleRating(input)} handleFormat={(e)=>handleFormat(e)} handleSearch={(input)=>handleSearch(input)} handleGenre={(e)=>handleGenre(e)}/>
+      <Routes rating={rating} format={format} genre={genre} searchText={searchText}/>
     </main>
   );
 }

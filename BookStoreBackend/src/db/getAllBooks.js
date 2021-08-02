@@ -1,6 +1,6 @@
 import { db } from './db';
 
-export const getAllBooks = async (page=0, limit=20, sortby, rating, format) => {
+export const getAllBooks = async (page=0, limit=20, sortby, rating, format, genre) => {
     const connection = db.getConnection();
 
 
@@ -22,6 +22,12 @@ export const getAllBooks = async (page=0, limit=20, sortby, rating, format) => {
     if (format) {
         const formatList = Array.isArray(format) ? format : format.split(",");
         queryObj.bookformat = {$in: formatList};
+    }
+
+    // Query based upon Genre. Use $in operator to find books matching genres mentioned in the comma-separated input
+    if (genre) {
+        const genreList = Array.isArray(genre) ? genre : genre.split(",");
+        queryObj.genre = {$in: genreList};
     }
 
     // Use cursor to the books list based upon the query criteria for the find method
