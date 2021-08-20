@@ -65,4 +65,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify  
+
+### Seed Data to Mongo API account on Cosmos DB
+Step 1 : Navigate to deployment folder using Git Bash 
+
+Step 2 : Make sure you have the environment variable .env created and the values are set for "COSMOS_DB_ACCOUNT" and "RESOURCE_GROUP" based on your resources
+
+Step 3 : Execute the shell script as './seed_data.sh'
+
+Step 4 : Run the React app and you should see the application leveraging the migrated data
