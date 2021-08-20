@@ -9,7 +9,8 @@ export const getAllBooksRoute = {
         const sortby = req.query.sortby;
         const rating = parseInt(req.query.rating);
         const format = req.query.format;
-        const books = await getAllBooks(page, limit, sortby, rating, format);
+        const genre = req.query.genre;
+        const books = await getAllBooks(page, limit, sortby, rating, format, genre);
         res.status(200).json(books);
     }
 }

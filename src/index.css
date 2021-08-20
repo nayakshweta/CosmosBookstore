@@ -162,7 +162,6 @@ nav > .menuToggle > .menu
   border-color: gray;
   border-width: 0.1rem;
   border-style: solid;
-
 }
 
 nav > .menuToggle > .menu > li
@@ -299,6 +298,100 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
 
 /* End of bookformat filter styles */
 
+/* Genre filter styles*/
+
+.menu > .genreForm > .genre-search {
+  height: 3rem;
+  width: 100%;
+  border-radius: .5rem;
+  background: #e9e9e9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  padding: 0.7rem;
+}
+
+.menu > .genreForm > .genre-search:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.menu > .genreForm > .genreList {
+  list-style-type: none;
+  padding: 0 0.1rem;
+  height: 10rem;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 1;
+  width: 66%;
+}
+
+/* width */
+.menu > .genreForm > .genreList::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff7518; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7518; 
+}
+.menu > .genreForm > .genreList > li {
+  background-color: white;
+  padding: 0.2rem 0.5rem;
+}
+
+.menu > .genreForm > .genreList > li:hover {
+  background-color: lightgray;
+  color: #ff7518;
+}
+
+.menu > .genres-container > ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+.menu > .genres-container > ul > li {
+  margin: 0.8rem 0.8rem 0.8rem 0;
+}
+
+.menu > .genres-container > ul > li > span {
+  background-color: #ff7518 ;
+  border-radius: .4rem;
+  padding: .5rem 0.5rem 0.5rem 0.5rem;
+  font-size: .8rem;
+  font-weight: 450;
+  color: white;
+}
+
+.menu > .genres-container > ul > .genre > span > .genre-remove {
+  background-color: transparent;
+  border-style: none;
+  position: relative;
+  top: -1px;
+  right: -5px;
+  font-weight: bold;
+  color: darkred;
+}
+
+/* End of Genre filter styles*/
+
+
  .navbar > nav > .logo {
   padding-top: 1.1rem;
   text-decoration: none;
@@ -349,6 +442,7 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  
 }
 
 .navbar > .search-box > .field > .search-query:focus {
@@ -431,7 +525,7 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
  /* End of Navbar stuff */
 
 
-/* Sorbar styles */
+/* Sortbar styles */
 
 .sortbar {
   padding-top: 6rem;
@@ -900,3 +994,5 @@ nav > .menuToggle > .menu > .FormatForm  > .FormatEntry > .checked:after {
   opacity: 1;
 }
 /* End of Comment delete button styles */
+
+
