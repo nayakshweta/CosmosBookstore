@@ -118,7 +118,7 @@ export const NavBar = ({rating, format, genre, handleRating, handleFormat, handl
                         <br />
                         <li>Filter By Genre</li>
                         <form className="genreForm" ref={ref}>
-                            <input type="search" name="genresearch" placeholder="Find the genre.." className="genre-search" autocomplete="off" onChange={handleGenreInputChange} value={genreInput}></input>
+                            <input type="search" name="genresearch" placeholder="Find the genre.." className="genre-search" autoComplete="off" onChange={handleGenreInputChange} value={genreInput}></input>
                             {isGenreListVisible ? <ul className="genreList">{autocompleteGenresMap} </ul> : <div></div> }
                         </form>
                         {genre === "" ? <div></div> : <div className="genres-container"><ul>{selectedGenresMap}</ul></div>}
@@ -129,7 +129,7 @@ export const NavBar = ({rating, format, genre, handleRating, handleFormat, handl
             
             <div className="search-box">
                 <div className="field">
-                    <input type="search" name="search" placeholder="Find your next book to read..." className="search-query" autocomplete="off" onChange={handleSearchInputChange} onKeyPress={(e)=>handleSearchInputEnter(e)}/>
+                    <input type="search" name="search" placeholder="Find your next book to read..." className="search-query" autoComplete="off" onChange={handleSearchInputChange} onKeyPress={(e)=>handleSearchInputEnter(e)}/>
                     <button type="submit" className="search-submit-btn" onClick={handleSearchButton}>Search</button>
                 </div>
             </div>

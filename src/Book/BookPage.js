@@ -83,7 +83,7 @@ export const BookPage = () => {
                     {commentListMap}
                 </ul>
                 <div className="comment-input-box">
-                    <input className="comment-input-name" type="text" placeholder="Your name..." id="name" ref={nameInput} />
+                    <input className="comment-input-name" type="text" placeholder="Your name..." id="name" ref={nameInput} autoComplete="off"/>
                     <textarea className="comment-input-text" type="text" placeholder="Add any comment..." id="comment" ref={commentInput} />
                     <div className="comment-button-div">
                         <button className="comment-button" id="add-comment" onClick={() => handleUpdateComment()}>Add a comment</button>
