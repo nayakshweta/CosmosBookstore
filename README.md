@@ -15,7 +15,8 @@ Some of the functionalities being demonstrated are:
 ### One-click deploy of the application & database to Azure
 
 ### Import the sample dataset into the Cosmos DB API for MongoDB account
+Step 1 : Navigate to deployment folder using Git Bash 
 
+Step 2 : Make sure you have the environment variable .env created and the values are set for "COSMOS_DB_ACCOUNT" and "RESOURCE_GROUP" based on your resources
 
-### Dataset Credits
-The dataset used in this application is ["GoodReads 100k books"](https://www.kaggle.com/mdhamani/goodreads-books-100k) dataset from Kaggle.
+Step 3 : Execute the shell script as './seed_data.sh'
