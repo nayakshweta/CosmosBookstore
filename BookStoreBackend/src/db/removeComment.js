@@ -4,7 +4,7 @@ import { ObjectId } from "bson"
 export const removeComment = async (bookId, commentIndex) => {
     const connection = db.getConnection();
 
-    //Remove comment from the reviewcomments array field of a book using $unset and $pull operators
+    //Updates one document. Removes a comment from the reviewcomments array field of a book using $unset and $pull array operators
     await connection.collection('books').updateOne(
                                             {"_id": ObjectId(bookId)}, 
                                             {$unset: {[`reviewcomments.${commentIndex}`]: 1}}

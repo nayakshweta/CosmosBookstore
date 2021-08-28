@@ -7,7 +7,7 @@ export const useBooks = (rating, format, genre, searchText) => {
     const [sortby, setSortBy] = useState("");
 
     function handleScroll() {
-        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+        if (window.innerHeight+ window.scrollY < document.body.offsetHeight) return;
 
         setPage(page => page+1);
     }

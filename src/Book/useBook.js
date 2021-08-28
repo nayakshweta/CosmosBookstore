@@ -10,7 +10,7 @@ export const useBook = (url) => {
             setBook(book);
         }
         loadBook();
-    });
+    }, [url]);
 
     return { book, setBook };
 }
