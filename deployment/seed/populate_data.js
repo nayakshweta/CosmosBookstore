@@ -62,7 +62,6 @@ async function populateDb(data, collectionName) {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       sslValidate: false,
-      connectWithNoPrimary: true,
     },
     (error, client) => {
       if (error) {
