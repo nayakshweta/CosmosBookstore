@@ -20,3 +20,7 @@ Step 1 : Navigate to deployment folder using Git Bash
 Step 2 : Make sure you have the environment variable .env created and the values are set for "COSMOS_DB_ACCOUNT" and "RESOURCE_GROUP" based on your resources
 
 Step 3 : Execute the shell script as './seed_data.sh'
+
+
+### Dataset Credits
+The dataset used in this application is ["GoodReads 100k books"](https://www.kaggle.com/mdhamani/goodreads-books-100k) dataset from Kaggle.

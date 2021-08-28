@@ -1,7 +1,0 @@
-export { db } from './db';
-export { getAllBooks } from './getAllBooks';
-export { getBook } from './getBook';
-export { updateComment } from './updateComment';
-export { removeComment } from './removeComment';
-export { searchBooks } from './searchBooks';
-export { searchGenres } from './searchGenres';
