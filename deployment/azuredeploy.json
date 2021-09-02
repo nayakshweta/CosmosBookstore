@@ -56,7 +56,7 @@
     },
     "repositoryUrl": {
       "type": "string",
-      "defaultValue": "https://github.com/sajeetharan/cosmos-deploy.git",
+      "defaultValue": "https://github.com/nayakshweta/CosmosBookstore.git",
       "metadata": {
         "description": ""
       }
