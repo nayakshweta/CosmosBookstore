@@ -13,6 +13,8 @@ Some of the functionalities being demonstrated are:
 - Azure Search integration
 
 ### One-click deploy of the application & database to Azure
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsajeetharan%2Fcosmos-deploy%2Fmaster%2Fdeployment%2Fseed%2Fazuredeploy.json)
+
 
 ### Import the sample dataset into the Cosmos DB API for MongoDB account
 Step 1 : Navigate to deployment folder using Git Bash 
