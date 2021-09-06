@@ -5,8 +5,6 @@ const DB_NAME = 'cosmosbookstore';
 const db = {
     _dbClient: null,
     connect: async function(url) {
-        // Set up singleton client connecting to Cosmos DB API for MongoDB
-
         // Use connection pool size of 10 by default
         const client = await MongoClient.connect(url, {
             poolSize: 10,
@@ -16,12 +14,12 @@ const db = {
         console.log("Cosmos DB's API for MongoDB connected")
         this._dbClient = client;
     },
+    
     getConnection: function() {
         if (!this._dbClient) {
             console.log('You need to call .connect() first!');
             process.exit(1);
         }
-
         return this._dbClient.db(DB_NAME);
     }
 }
