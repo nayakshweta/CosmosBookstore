@@ -9,21 +9,29 @@ const searchBooks = async (skip=0, top=20, searchString, orderby, rating, format
     const indexName = process.env.SEARCH_INDEX_NAME || "";
 
     
-    // setting up an Azure Search client
+    // Setting up an Azure Search client
     const searchClient = new SearchClient(endpoint, indexName, new AzureKeyCredential(apiKey));
 
+    // Add the list of OData $orderby expressions by which to sort the results. 
     let orderByOption = [];
     if (orderby == "rating") {
         orderByOption.push("rating desc");
     }
 
+    // Build the OData $filter expression to apply to the search query.
     let filterOption = "";
+
+    // Filter using comparison operator
     if (rating) {
         filterOption === "" ? filterOption+=`rating gt ${rating}` : filterOption+=` and rating gt ${rating}`;
     }
+
+    // Filter using search.in function to see if the bookformat field is in given list of values
     if (format) {
         filterOption === "" ? filterOption+=`search.in(bookformat, '${format}')` : filterOption+=` and search.in(bookformat, '${format}')`
     }
+
+    // Filter using search.ismatch function if the genre field matches with the specified genre
     if (genre) {
         const genreList = Array.isArray(genre) ? genre : genre.split(",");
         if (genreList.length === 1) {
@@ -47,14 +55,17 @@ const searchBooks = async (skip=0, top=20, searchString, orderby, rating, format
     }
 
     let searchOptions = {
-        select: ["doc_id", "title", "author", "img"],
-        skip: skip,
-        top: top,
-        orderBy: orderByOption,
-        filter: odata(filterOption)
+        select: ["doc_id", "title", "author", "img"],   // The list of fields to retrieve
+        skip: skip,                                     // The number of search results to skip. 
+        top: top,                                       // The number of search results to retrieve.
+        orderBy: orderByOption,                         // The list of OData $orderby expressions by which to sort the results. 
+        filter: odata(filterOption)                     // The OData $filter expression to apply to the search query. 
     };
 
+    // Perform a search on the current index given the specified arguments.
     let searchResults = await searchClient.search(searchString, searchOptions);
+
+    // Get the list of books from the search result
     let books = [];
     
     for await (const result of searchResults.results) {
