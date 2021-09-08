@@ -16,7 +16,7 @@ Some of the functionalities being demonstrated are:
 
 ## One-click deploy of the application & database to Azure
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsajeetharan%2Fcosmos-deploy%2Fmaster%2Fdeployment%2Fseed%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnayakshweta%2FCosmosBookstore%2Fmaster%2Fdeployment%2Fazuredeploy.json)
 
 ## Import the sample dataset into the Cosmos DB API for MongoDB account
 
