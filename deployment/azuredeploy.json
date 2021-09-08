@@ -56,7 +56,7 @@
     },
     "repositoryUrl": {
       "type": "string",
-      "defaultValue": "https://github.com/nayakshweta/CosmosBookstore.git",
+      "defaultValue": "https://github.com/sajeetharan/cosmos-deploy.git",
       "metadata": {
         "description": ""
       }
@@ -114,7 +114,7 @@
       "location": "[parameters('location')]",
       "properties": {
         "consistencyPolicy": {
-          "defaultConsistencyLevel": "Strong"
+          "defaultConsistencyLevel": "Session"
         },
         "locations": [
           {
@@ -190,7 +190,7 @@
             "WEBSITE_NODE_DEFAULT_VERSION": "14.0.0",
             "LOG_LEVEL": "log",
             "LOG_ENABLED": true,
-            "COSMOS_BOOKSTORE_DB_CONNECTION_STRING":"",
+            "COSMOS_BOOKSTORE_DB_CONNECTION_STRING":"[listConnectionStrings(resourceId('Microsoft.DocumentDB/databaseAccounts', toLower(parameters('applicationName'))), '2019-12-12').connectionStrings[0].connectionString]",
             "NODE_ENV":"production"
           }
         },
