@@ -4,7 +4,10 @@ import routes from './src/routes/index.js';
 import path from 'path'
 
 import dotenv from "dotenv";
+
 dotenv.config();
+
+/* Create an Express application.*/
 const app = express();
 const __dirname = path.resolve();
 app.use(express.json())
