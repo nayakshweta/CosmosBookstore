@@ -56,7 +56,7 @@
     },
     "repositoryUrl": {
       "type": "string",
-      "defaultValue": "https://github.com/sajeetharan/cosmos-deploy.git",
+      "defaultValue": "https://github.com/nayakshweta/CosmosBookstore.git",
       "metadata": {
         "description": ""
       }
@@ -85,6 +85,20 @@
       "defaultValue": "cosmosbookstore",
       "metadata": {
         "description": "The name for the Mongo DB database"
+      }
+    },
+    "collection1Name": {
+      "type": "string",
+      "defaultValue": "books",
+      "metadata": {
+        "description": "The name for the first Mongo DB collection"
+      }
+    },
+    "collection2Name": {
+      "type": "string",
+      "defaultValue": "genres",
+      "metadata": {
+        "description": "The name for the second Mongo DB collection"
       }
     },
     "throughput": {
@@ -146,6 +160,76 @@
       ]
     },
     {
+      "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
+      "apiVersion": "2021-04-15",
+      "name": "[format('{0}/{1}/{2}', variables('cosmosAccountName'), parameters('databaseName'), parameters('collection1Name'))]",
+      "properties": {
+        "resource": {
+          "id": "[parameters('collection1Name')]",
+          "indexes": [
+            {
+              "key": {
+                "keys": [
+                  "_id"
+                ]
+              }
+            },
+            {
+              "key": {
+                "keys": [
+                  "$**"
+                ]
+              }
+            },
+            {
+              "key": {
+                "keys": [
+                  "title"
+                ]
+              },
+              "options": {
+                "unique": true
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('cosmosAccountName'), parameters('databaseName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
+      "apiVersion": "2021-04-15",
+      "name": "[format('{0}/{1}/{2}', variables('cosmosAccountName'), parameters('databaseName'), parameters('collection2Name'))]",
+      "properties": {
+        "resource": {
+          "id": "[parameters('collection2Name')]",
+          "indexes": [
+            {
+              "key": {
+                "keys": [
+                  "_id"
+                ]
+              }
+            },
+            {
+              "key": {
+                "keys": [
+                  "$**"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('cosmosAccountName'), parameters('databaseName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))]"
+      ]
+    },
+    {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2020-06-01",
       "kind": "linux",
@@ -169,7 +253,7 @@
         "siteConfig": {
           "linuxFxVersion": "[variables('linuxFxVersion')]",
           "alwaysOn": "[variables('alwaysOn')]",
-          "appCommandLine":"pm2 start ecosystem.config.js --no-daemon"
+          "appCommandLine": "pm2 start ecosystem.config.js --no-daemon"
         }
       },
       "dependsOn": [
@@ -190,8 +274,8 @@
             "WEBSITE_NODE_DEFAULT_VERSION": "14.0.0",
             "LOG_LEVEL": "log",
             "LOG_ENABLED": true,
-            "COSMOS_BOOKSTORE_DB_CONNECTION_STRING":"[listConnectionStrings(resourceId('Microsoft.DocumentDB/databaseAccounts', toLower(parameters('applicationName'))), '2019-12-12').connectionStrings[0].connectionString]",
-            "NODE_ENV":"production"
+            "COSMOS_BOOKSTORE_DB_CONNECTION_STRING": "[listConnectionStrings(resourceId('Microsoft.DocumentDB/databaseAccounts', toLower(parameters('applicationName'))), '2019-12-12').connectionStrings[0].connectionString]",
+            "NODE_ENV": "production"
           }
         },
         {
