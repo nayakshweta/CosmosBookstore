@@ -14,17 +14,34 @@ Some of the functionalities being demonstrated are:
 - Aggregation pipelines
 - Azure Search integration
 
-## One-click deploy of the application & database to Azure
+## Deploy the app quickly
 
+Clone this repository and navigate to the root of the directory.
+
+Follow the steps below to deploy the app with minimal effort and begin experimenting with the application and the codebase.
+
+### Deploy the resources to Azure
+
+The template below deploys the application into an Azure App Service instance and creates a Cosmos DB account.
+Simply enter the Resource Group name in this template to get started.
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnayakshweta%2FCosmosBookstore%2Fmaster%2Fdeployment%2Fazuredeploy.json)
 
-## Import the sample dataset into the Cosmos DB API for MongoDB account
+### Import the sample dataset into the Cosmos DB API for MongoDB account
 
-Step 1 : Navigate to deployment folder using Git Bash 
+1. Navigate to folder ./deployment/seed using Git Bash.
 
-Step 2 : Make sure you have the environment variable .env created and the values are set for "COSMOS_DB_ACCOUNT" and "RESOURCE_GROUP" based on your resources
+2. Update .env file in this path by specifying value for "COSMOS_DB_CONNECTION_STRING" of the Cosmos DB account created by the deployment template in the previous step. 
+You can get the connection string from Azure portal > Cosmos DB Account resource > Connection string blade > Primary connection string.
+Example of updated .env file:
+COSMOS_DB_CONNECTION_STRING="mongodb://accountname:passwordendingin==@accountname.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@accountname@"
 
-Step 3 : Execute the shell script as './seed_data.sh'
+3. Execute the seeding shell script with the command './seed_data.sh'. It may take a few minutes to seed the data into books and genres collections
+
+### Connect to the application
+
+Now you can try out the application by browsing to the app service URL.
+You can find the URL in the overview section of the App Service resource created by the deployment template.
+
 
 ## Dataset Credits
 
