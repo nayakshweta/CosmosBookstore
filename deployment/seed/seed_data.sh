@@ -8,10 +8,9 @@
 
     npm i --silent
     #     echo "Getting connection string..."
-    endpoint=$(az cosmosdb keys list -g $RESOURCE_GROUP -n $COSMOS_DB_ACCOUNT --type connection-strings    --query connectionStrings[0].connectionString --output json)
 
     echo "Populating database..."
-    node ./populate_data.js --endpoint $endpoint
+    node ./populate_data.js --endpoint $COSMOS_DB_CONNECTION_STRING
 
     echo "Finished! Seeding, $COSMOS_DB_ACCOUNT, is now ready to play around!"
 
