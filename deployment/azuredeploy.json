@@ -177,18 +177,8 @@
             {
               "key": {
                 "keys": [
-                  "$**"
+                  "rating"
                 ]
-              }
-            },
-            {
-              "key": {
-                "keys": [
-                  "title"
-                ]
-              },
-              "options": {
-                "unique": true
               }
             }
           ]
