@@ -180,16 +180,6 @@
                   "$**"
                 ]
               }
-            },
-            {
-              "key": {
-                "keys": [
-                  "title"
-                ]
-              },
-              "options": {
-                "unique": true
-              }
             }
           ]
         }
