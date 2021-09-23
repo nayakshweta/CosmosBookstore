@@ -33,7 +33,7 @@ export const BooksListItem = ({ book }) => {
 
 
     return (<li>
-        <a href={"/books/" + bookId} target="_blank" rel="noopener noreferrer">
+        <a href={"/book/" + bookId} target="_blank" rel="noopener noreferrer">
         <div className="item" style={myStyle}>{titleTextImg}
             <div className="item-overlay">
                 <div className="book-title">{title}</div>
