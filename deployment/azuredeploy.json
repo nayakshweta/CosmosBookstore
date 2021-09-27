@@ -265,6 +265,9 @@
             "LOG_LEVEL": "log",
             "LOG_ENABLED": true,
             "COSMOS_BOOKSTORE_DB_CONNECTION_STRING": "[listConnectionStrings(resourceId('Microsoft.DocumentDB/databaseAccounts', toLower(parameters('applicationName'))), '2019-12-12').connectionStrings[0].connectionString]",
+            "SEARCH_API_KEY":"",
+            "SEARCH_API_ENDPOINT":"",
+            "SEARCH_INDEX_NAME":"",
             "NODE_ENV": "production"
           }
         },

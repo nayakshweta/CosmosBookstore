@@ -42,7 +42,11 @@ COSMOS_DB_CONNECTION_STRING="mongodb://accountname:passwordendingin==@accountnam
 
 Now you can try out the application by browsing to the app service URL.
 You can find the URL in the overview section of the App Service resource created by the deployment template.
+![Cosmos Bookstore Main page](deployment/docs/images/cosmosbookstoremainpage.png)
 
+### Setup Azure Search Integration
+
+Optionally, you can [setup Azure Search integration](deployment/docs/azuresearchsetup.md) to try out the full text functionality in the app.
 
 ## Dataset Credits
 
