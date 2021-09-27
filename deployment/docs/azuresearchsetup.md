@@ -10,5 +10,5 @@
   - The indexer will take a few minutes to finish crawling all the documents. You will be able to validate the indexer progress from the overview blade of the search service
   ![Search indexer completion](./images/searchindexercomplete.png)
 
-- Update the SEARCH_API_KEY, SEARCH_API_ENDPOINT and SEARCH_INDEX_NAME variables in the Configuration > Application settings of the App service resource created by the deployment. <br />
+- Edit the SEARCH_API_KEY, SEARCH_API_ENDPOINT and SEARCH_INDEX_NAME variables in the Configuration > Application settings of the App service resource created by the deployment and then 'Save' the settings. That will apply the changes and restart the app.<br />
 Now you should be able to use the full text search functionality in the Cosmos Bookstore app!

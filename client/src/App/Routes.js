@@ -9,7 +9,7 @@ const routes = [ {
     private: true,
     exact: true,
 }, {
-    path: '/books/:id',
+    path: '/book/:id',
     Component: BookPage,
     private: true,
 }
