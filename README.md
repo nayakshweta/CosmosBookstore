@@ -36,7 +36,20 @@ You can get the connection string from Azure portal > Cosmos DB Account resource
 Example of updated .env file:
 COSMOS_DB_CONNECTION_STRING="mongodb://accountname:passwordendingin==@accountname.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@accountname@"
 
-3. Execute the seeding shell script with the command './seed_data.sh'. It may take a few minutes to seed the data into books and genres collections
+3. Execute the seeding shell script with the command './seed_data.sh'. It may take a few minutes to seed the data into books and genres collections.\
+Item count of books collection is ~85k and genres collection has only 1 item. \
+Successful run result looks like this:
+```
+Preparing to import data...
+Installing Node modules...
+Populating database...
+$$$ Seeding data started 9/30/2021, 10:29:05 AM
+Fetching books
+Fetching genres
+Seeding completed on genres Collection 9/30/2021, 10:29:10 AM
+Seeding completed on books Collection 9/30/2021, 10:39:40 AM
+```
+
 
 ### Connect to the application
 
