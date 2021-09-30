@@ -103,7 +103,7 @@
     },
     "throughput": {
       "type": "int",
-      "defaultValue": 4000,
+      "defaultValue": 8000,
       "maxValue": 1000000,
       "minValue": 400,
       "metadata": {
