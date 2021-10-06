@@ -59,7 +59,8 @@ You can find the URL in the overview section of the App Service resource created
 
 ### Setup Azure Search Integration
 
-Optionally, you can [setup Azure Search integration](deployment/docs/azuresearchsetup.md) to try out the full text functionality in the app.
+Optionally, you can [setup Azure Search integration](deployment/docs/azuresearchsetup.md) to try out the full text functionality in the app. 
+> Azure Search support for Cosmos DB API for MongoDB is currently in preview, so the feature will explicitly need to be enabled for your subscription.
 
 ## Dataset Credits
 
