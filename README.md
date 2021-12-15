@@ -1,4 +1,5 @@
 # Cosmos Bookstore
+> This application has now been moved to Azure-Samples [repo](https://github.com/Azure-Samples/azure-cosmosdb-mongodb-api-nodejs-bookstore) 
 
 Cosmos Bookstore is a sample books catalog application that demonstrates the capabilities of Azure Cosmos DB API for MongoDB.
 
